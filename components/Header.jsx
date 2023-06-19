@@ -2,8 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 import HeaderIcon from './HeaderIcon';
 import { FaHome, FaFontAwesomeFlag, FaUsers } from "react-icons/fa";
-import { IoPlayOutline } from "react-icons/io5";
 import { BiCart } from "react-icons/bi";
+import { FiPlayCircle } from "react-icons/fi";
 
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
 
 
     return (
-        <div>
+        <div className='flex'>
             {/* Left Side */}
             <div className='flex items-center'>
                 <Image src={logoUrl} width={40} height={40} layout="fixed" alt='logo' />
@@ -28,7 +28,7 @@ export default function Header() {
                 <div className='flex space-x-6 md:space-x-2 '>
                     <HeaderIcon Icon={FaHome} />
                     <HeaderIcon Icon={FaFontAwesomeFlag} />
-                    <HeaderIcon Icon={IoPlayOutline} />
+                    <HeaderIcon Icon={FiPlayCircle} />
                     <HeaderIcon Icon={BiCart} />
                     <HeaderIcon Icon={FaUsers} />
                 </div>
