@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Header from '@/components/Header'
 import Login from '@/components/Login'
 import Sidebar from '@/components/Sidebar'
+import Feed from '@/components/feed/Index'
 import { getSession,useSession  } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,13 +16,14 @@ export default function Home() {
 
 
   return (
-    <div>
+    <div className='h-screen bg-gray-100 overflow-hidden'>
       <Head>
         <title>Facebook</title>
       </Head>
       <Header />
       <main className='flex'>
       <Sidebar />
+      <Feed />
         {/* feed */}
         {/* widgets */}
       </main>
