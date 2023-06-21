@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { useSession } from "next-auth/react"
-import { FaVideo } from "react-icons/fa";
+import { FaVideo,FaCamera,FaSmile } from "react-icons/fa";
 
 
 export default function InputBox() {
@@ -23,13 +23,21 @@ export default function InputBox() {
                     <button hidden onClick={sendPost} type='submit'>Submit</button>
                 </form>
             </div>
-            <div className='flex justify-evenly border-t'>
-                <div className=''>
+            <div className='flex justify-evenly p-3 border-t'>
+                <div className='inputIcon'>
                     <FaVideo className='text-red-500 h-7 cursor-pointer' />
+                    <p className='text-xs sm:text-sm xl:text-base'>Live Video</p>
+                </div>
+                <div className='inputIcon'>
+                    <FaCamera className='text-green-500 h-7 cursor-pointer' />
                     <p className='text-xs sm:text-sm xl:text-base'>Photo/Video</p>
                 </div>
-                <div></div>
-                <div></div>
+                <div className='inputIcon'>
+                    <FaSmile className='text-yellow-500 h-7 cursor-pointer' />
+                    <p className='text-xs sm:text-sm xl:text-base'>
+                        Feeling/Activity
+                    </p>
+                </div>
             </div>
         </div>
     )
