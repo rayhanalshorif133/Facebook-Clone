@@ -38,7 +38,6 @@ export default function InputBox() {
         if(e.target.files[0]){
             reader.readAsDataURL(e.target.files[0]);
             setSendImage(e.target.files[0]);
-            uploadBytesResumableData(e.target.files[0]);
         }
         
         reader.onload = (readerEvent) => {
