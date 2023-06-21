@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React, { useRef,useState } from 'react'
 import { useSession } from "next-auth/react"
 import { FaVideo, FaCamera, FaSmile } from "react-icons/fa";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import postController from '@/controllers/PostController';
 
 
@@ -13,6 +14,7 @@ export default function InputBox() {
     const inputRef = useRef(null);
     const filePickerRef = useRef(null);
     const [imageToPost,setImageToPost] = useState(null);
+    const [sendImage,setSendImage] = useState(null);
 
     const sendPost = (e) => {
         e.preventDefault();
@@ -26,7 +28,7 @@ export default function InputBox() {
             image: session.user.image,
             timestamp: Date.now(),
         }
-        postController.create(data,imageToPost);
+        postController.create(data,sendImage);
         inputRef.current.value = '';
     }
 
@@ -35,9 +37,10 @@ export default function InputBox() {
 
         if(e.target.files[0]){
             reader.readAsDataURL(e.target.files[0]);
+            setSendImage(e.target.files[0]);
+            uploadBytesResumableData(e.target.files[0]);
         }
-
-
+        
         reader.onload = (readerEvent) => {
             setImageToPost(readerEvent.target.result);
         }
@@ -88,3 +91,6 @@ export default function InputBox() {
         </div>
     )
 }
+
+
+
