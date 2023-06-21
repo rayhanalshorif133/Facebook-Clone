@@ -5,10 +5,12 @@ import { FaHome, FaFontAwesomeFlag, FaUsers, FaRocketchat, FaBell, FaChevronDown
 import { BiCart } from "react-icons/bi";
 import { FiPlayCircle } from "react-icons/fi";
 import { HiViewGrid } from "react-icons/hi";
+import { useSession, signIn, signOut } from "next-auth/react"
 
 
 export default function Header() {
 
+    const { data: session } = useSession()
     const logoUrl = 'https://links.papareact.com/5me';
 
 
@@ -36,7 +38,17 @@ export default function Header() {
             </div>
             <div className='flex items-center sm:space-x-2 justify-end flex-grow'>
                 {/* Profile Pic */}
-                <p className='whitespace-nowrap font-semibold pr-3'>Rayhan</p>
+                <Image
+                    onClick={signOut}
+                    className='rounded-full cursor-pointer'
+                    src={session?.user?.image}
+                    width={40}
+                    height={40}
+                    layout='fixed'
+                    alt='profile pic'
+                />
+
+                <p className='whitespace-nowrap font-semibold pr-3'>{session?.user?.name}</p>
                 <HiViewGrid className='icon' />
                 <FaRocketchat className='icon' />
                 <FaBell className='icon' />
