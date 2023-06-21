@@ -5,8 +5,8 @@ import Posts from './Posts'
 
 export default function Feed() {
   return (
-    <div>
-        <div className="">
+    <div className="flex-grow h-screen pb-44 pt-6 mr-4 xl:mr-40 overflow-y-auto">
+        <div className="mx-auto max-w-md md:max-w-lg lg:max-w-[43rem] justify-center">
             <Stories/>
         </div>
         <div className="">
