@@ -7,7 +7,6 @@ export default function Contact({name,src}) {
         <img src={src} 
         width={50}
         height={50}
-        objectFit='cover'
         layout='fixed'
         className='rounded-full'/>
         <p>{name}</p>

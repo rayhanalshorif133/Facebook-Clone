@@ -6,6 +6,7 @@ import { BiCart } from "react-icons/bi";
 import { FiPlayCircle } from "react-icons/fi";
 import { HiViewGrid } from "react-icons/hi";
 import { useSession, signIn, signOut } from "next-auth/react"
+import userController from '@/controllers/UserController';
 
 
 export default function Header() {
@@ -39,7 +40,7 @@ export default function Header() {
             <div className='flex items-center sm:space-x-2 justify-end flex-grow'>
                 {/* Profile Pic */}
                 <Image
-                    onClick={signOut}
+                    onClick={() => userController.handleLogout(session)}
                     className='rounded-full cursor-pointer'
                     src={session?.user?.image}
                     width={40}

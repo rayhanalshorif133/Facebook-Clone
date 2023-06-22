@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['developers.google.com','lh3.googleusercontent.com','robohash.org','rebrand.ly','links.papareact.com','platform-lookaside.fbsbx.com','firebasestorage.googleapis.com'],
+    domains: ['tuk-cdn.s3.amazonaws.com','developers.google.com','lh3.googleusercontent.com','robohash.org','rebrand.ly','links.papareact.com','platform-lookaside.fbsbx.com','firebasestorage.googleapis.com'],
   },
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaVideo,FaSistrix,FaEllipsisH } from "react-icons/fa";
 import Contact from './Contact';
+import userController from '@/controllers/UserController';
 const contacts = [
     {
       id: 1,
@@ -28,6 +29,10 @@ const contacts = [
   ];
 
 export default function Index() {
+
+
+  userController.getUsers();
+
   return (
     <div className="hidden lg:flex flex-col w-60 p-2 mt-5">
         <div className='flex justify-between items-center text-gray-500 mb-5'>

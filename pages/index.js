@@ -6,19 +6,15 @@ import Login from '@/components/Login'
 import Sidebar from '@/components/Sidebar'
 import Feed from '@/components/feed/Index'
 import Widgets from '@/components/widgets/Index'
-import { getSession,useSession  } from 'next-auth/react'
+import { getSession, useSession  } from 'next-auth/react'
+import userController from '@/controllers/UserController'
 
 
 export default function Home() {
 
-  const { data: session, status } = useSession()
-
-
-  console.log(useSession());
-
+  const { data: session } = useSession();
+  
   if(!session) return <Login/>;
-
-
   return (
     <div className='h-screen bg-gray-100 overflow-hidden'>
       <Head>
@@ -37,11 +33,8 @@ export default function Home() {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-
-
-  console.log(getSession(context));
-
-
+  userController.userCreateOrUpdate(session);
+  
   return {
     props: {
       session,
