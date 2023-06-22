@@ -4,12 +4,20 @@ import { signIn } from "next-auth/react"
 
 
 export default function Login() {
+
+
+  const handleGoogleSignIn = () => {
+    signIn('google', { callbackUrl: 'http://localhost:3000' })
+  }
+
   return (
-    <div className='grid place-items-center'>
-        <Image src="https://links.papareact.com/t4i" width={400} height={400} alt='Facebook logo' />
-        <h1 className='mt-10 p-3 bg-blue-500 rounded-full text-white text-center cursor-pointer' onClick={signIn}>
-            Login With Facebook
-        </h1>
+    <div className='grid place-items-center mt-10'>
+      <Image src="/assets/images/logos/google_logo.png" width={200} height={200} alt='Facebook logo' />
+      <button onClick={handleGoogleSignIn}
+      className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-700 flex items-center w-50 mt-10">
+        <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg" alt="google"/>
+          <p className="text-base font-medium ml-4 text-gray-700">Continue with Google</p>
+      </button>
     </div>
   )
 }

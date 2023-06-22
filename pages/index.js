@@ -12,7 +12,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-  const { data: session, status } = useSession()
+  // const { data: session, status } = useSession()
+  const { data: session, status, update } = useSession()
+
+
+  console.log(useSession());
+
   if(!session) return <Login/>;
 
 
@@ -34,6 +39,10 @@ export default function Home() {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+
+
+  console.log(getSession(context));
+
 
   return {
     props: {

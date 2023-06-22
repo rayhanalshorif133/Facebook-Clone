@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaVideo,FaSistrix,FaEllipsisH } from "react-icons/fa";
-
+import Contact from './Contact';
 const contacts = [
     {
       id: 1,
@@ -10,21 +10,20 @@ const contacts = [
     {
       id: 2,
       name: "Elon Musk",
-      src: "https://links.papareact.com/4zn",
+      src: "https://links.papareact.com/kxk",
     },
     {
       id: 3,
       name: "Jeff Bezoz",
-      src: "https://links.papareact.com/k2j",
-  
+      src: "https://links.papareact.com/kxk",
     },{
       id: 4,
       name: "Mark Zuckerberg",
-      src: "https://links.papareact.com/xql",
+      src: "https://links.papareact.com/snf",
     },{
       id: 5,
       name: "Bill Gates",
-      src: "https://links.papareact.com/4u4",
+      src: "https://links.papareact.com/zvy",
     }
   ];
 
@@ -39,6 +38,10 @@ export default function Index() {
                 <FaEllipsisH className='h-6'/>
             </div>
         </div>
+        {contacts.map(contact => (
+            <Contact key={contact.id} src={contact.src} name={contact.name}/>
+        )
+        )}
     </div>
   )
 }
