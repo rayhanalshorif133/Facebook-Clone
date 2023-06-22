@@ -8,12 +8,10 @@ import Feed from '@/components/feed/Index'
 import Widgets from '@/components/widgets/Index'
 import { getSession,useSession  } from 'next-auth/react'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-  // const { data: session, status } = useSession()
-  const { data: session, status, update } = useSession()
+  const { data: session, status } = useSession()
 
 
   console.log(useSession());
