@@ -16,21 +16,18 @@ const postController = {};
 postController.create = async (data, getFile = null) => {
 
     // base64 encode
-    const result = await addDoc(testRef, data);
+    const result = await addDoc(postRef, data);
 
     if (result && getFile !== null) {
-        await uploadBytesNewTest(result, getFile);
+        await imageUploadBytes(result, getFile);
     }
 };
 
-const uploadBytesNewTest = async (result, getFile) => {
+const imageUploadBytes = async (result, getFile) => {
     const storage = getStorage();
     const imageName = result.id + '.jpg';
 
-    const storageRef = ref(storage, 't/' + imageName);
-
-    // Create file metadata including the content type
-    /** @type {any} */
+    const storageRef = ref(storage, 'posts/' + imageName);
     const metadata = {
         contentType: 'image/jpeg',
     };
@@ -40,12 +37,15 @@ const uploadBytesNewTest = async (result, getFile) => {
     if (uploadTask) {
         getDownloadURL(storageRef)
             .then((url) => {
-                console.log(url);
+                updateDoc(result, {
+                    postImage: url,
+                });
             })
     }
 };
 
 
+// Just Practice
 
 async function uploadBytesResumableData(result, uploadFile) {
 
