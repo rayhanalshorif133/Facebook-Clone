@@ -24,7 +24,6 @@ export default function Home() {
       <main className='flex'>
       <Sidebar />
       <Feed />
-        {/* feed */}
         {/* widgets */}
       </main>
     </div>

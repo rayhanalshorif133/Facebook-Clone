@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React, { useRef,useState } from 'react'
 import { useSession } from "next-auth/react"
 import { FaVideo, FaCamera, FaSmile } from "react-icons/fa";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import postController from '@/controllers/PostController';
 
 
@@ -26,10 +25,12 @@ export default function InputBox() {
             name: session.user.name,
             email: session.user.email,
             image: session.user.image,
+            postImage: null,
             timestamp: Date.now(),
         }
         postController.create(data,sendImage);
         inputRef.current.value = '';
+        removeImage();
     }
 
     const addImageToPost = (e) => {
