@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Login from '@/components/Login'
 import Sidebar from '@/components/Sidebar'
 import Feed from '@/components/feed/Index'
+import Widgets from '@/components/widgets/Index'
 import { getSession,useSession  } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,7 +25,7 @@ export default function Home() {
       <main className='flex'>
       <Sidebar />
       <Feed />
-        {/* widgets */}
+      <Widgets />
       </main>
     </div>
   )

@@ -3,6 +3,7 @@ import { getFirestore, collection, query, orderBy } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { app } from '@/database/firebaseDb';
 import Post from './Post';
+import Loading from '../Loading';
 
 export default function Posts() {
 
@@ -13,7 +14,7 @@ export default function Posts() {
     )
   );
 
-  if(loading) return <h1>Loading...</h1>
+  if(loading) return <Loading/>
 
   return (
     <div>
