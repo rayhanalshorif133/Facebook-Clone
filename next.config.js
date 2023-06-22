@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['rebrand.ly','links.papareact.com','platform-lookaside.fbsbx.com','firebasestorage.googleapis.com'],
+    domains: ['robohash.org','rebrand.ly','links.papareact.com','platform-lookaside.fbsbx.com','firebasestorage.googleapis.com'],
   },
 }
 
