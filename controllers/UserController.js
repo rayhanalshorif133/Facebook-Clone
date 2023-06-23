@@ -1,9 +1,9 @@
-import { userRef } from "@/database/reference";
-import { addDoc, getDocs, setDoc } from "firebase/firestore/lite";
-import { signIn, signOut } from "next-auth/react"
-import { v4 as uuidv4 } from 'uuid';
 import { db } from "@/database/firebaseDb";
+import { userRef } from "@/database/reference";
 import { collection } from "firebase/firestore";
+import { addDoc, getDocs } from "firebase/firestore/lite";
+import { signIn, signOut } from "next-auth/react";
+import { v4 as uuidv4 } from 'uuid';
 
 
 const userController = {};
@@ -13,10 +13,10 @@ const updateUserStatus = async (session, status) => {
 
 
     const userRef = collection(db, 'users');
-    
+
 
     console.log(userRef);
-    
+
 
     return true;
 };
@@ -27,14 +27,14 @@ userController.handleGoogleSignIn = () => {
 
 userController.handleLogout = async (session) => {
 
-    const users = await getDocs(userRef);
+    // const users = await getDocs(userRef);
 
-    users.forEach((user) => {
-        console.log(user.data());
-    });
+    // users.forEach((user) => {
+    //     console.log(user.data());
+    // });
+    signOut();
 };
 
-// signOut();
 
 userController.userCreateOrUpdate = async (session) => {
     //    pushNewUser(userRef, session);

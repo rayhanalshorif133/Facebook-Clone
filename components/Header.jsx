@@ -1,12 +1,11 @@
-import Image from 'next/image'
-import React from 'react'
-import HeaderIcon from './HeaderIcon';
-import { FaHome, FaFontAwesomeFlag, FaUsers, FaRocketchat, FaBell, FaChevronDown } from "react-icons/fa";
+import userController from '@/controllers/UserController';
+import { useSession } from "next-auth/react";
+import Image from 'next/image';
 import { BiCart } from "react-icons/bi";
+import { FaBell, FaChevronDown, FaFontAwesomeFlag, FaHome, FaRocketchat, FaUsers } from "react-icons/fa";
 import { FiPlayCircle } from "react-icons/fi";
 import { HiViewGrid } from "react-icons/hi";
-import { useSession, signIn, signOut } from "next-auth/react"
-import userController from '@/controllers/UserController';
+import HeaderIcon from './HeaderIcon';
 
 
 export default function Header() {
