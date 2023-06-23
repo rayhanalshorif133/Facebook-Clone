@@ -16,6 +16,7 @@ export default function Home() {
   return (
     <div className='h-screen bg-gray-100 overflow-hidden'>
       <Head>
+        <link rel="icon" href="/assets/icons/facebook_logo_icon.ico" sizes="any" />
         <title>Facebook</title>
       </Head>
       <HeaderNew />
