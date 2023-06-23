@@ -15,7 +15,6 @@ const updateUserStatus = async (session, status) => {
     const userRef = collection(db, 'users');
 
 
-    console.log(userRef);
 
 
     return true;
