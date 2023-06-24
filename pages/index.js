@@ -1,5 +1,5 @@
 import Header from '@/components/Header'
-import Login from '@/components/Login'
+import Login from '@/components/Login/index'
 import Sidebar from '@/components/Sidebar'
 import Feed from '@/components/feed/Index'
 import Widgets from '@/components/widgets/Index'
