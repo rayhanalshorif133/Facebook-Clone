@@ -1,4 +1,3 @@
-import { db } from "@/database/firebaseDb";
 import { userRef } from "@/database/reference";
 import { collection } from "firebase/firestore";
 import { addDoc, getDocs } from "firebase/firestore/lite";
@@ -25,39 +24,12 @@ userController.handleGoogleSignIn = () => {
 }
 
 userController.handleLogout = async (session) => {
-
-    // const users = await getDocs(userRef);
-
-    // users.forEach((user) => {
-    //     console.log(user.data());
-    // });
     signOut();
 };
 
 
 userController.userCreateOrUpdate = async (session) => {
-    //    pushNewUser(userRef, session);
-    const existUser = await isExistUser(session);
-    if (!existUser) {
-        pushNewUser(userRef, session);
-    } else {
-        console.log('user exist');
-        updateUserStatus(session, 'active');
-    }
-    return true;
-}
 
-
-userController.getUsers = async () => {
-    try {
-        const docSnap = await getDocs(userRef);
-
-        docSnap.forEach((doc) => {
-            // console.log(doc.data());
-        })
-    } catch (error) {
-        // console.log(error)
-    }
 }
 
 
