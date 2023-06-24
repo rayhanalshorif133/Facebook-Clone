@@ -2,7 +2,7 @@ import { db } from "@/database/firebaseDb";
 import { userRef } from "@/database/reference";
 import { collection } from "firebase/firestore";
 import { addDoc, getDocs } from "firebase/firestore/lite";
-import { signOut } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -21,7 +21,7 @@ const updateUserStatus = async (session, status) => {
 };
 
 userController.handleGoogleSignIn = () => {
-    // signIn('google', { callbackUrl: 'http://localhost:3000' });
+    signIn('google', { callbackUrl: 'http://localhost:3000' });
 }
 
 userController.handleLogout = async (session) => {
