@@ -1,6 +1,6 @@
-import userController from '@/controllers/UserController'
 import Head from 'next/head'
-
+import Footer from './Footer'
+import Form from './Form'
 
 export default function Index() {
  return (
@@ -16,25 +16,12 @@ export default function Index() {
       <p className="text-black text-[1.7rem] font-[480]">
        Facebook helps you connect and share <br /> with the people in your life.</p>
      </div>
-     <div className="mt-[10rem]">
-      <div className="bg-white p-5 shadow-lg rounded-2xl">
-       <form className="flex flex-col items-center justify-center">
-        <input type="text" placeholder="Email address or phone number" className="w-[400px] h-[50px] border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1B74E4] focus:border-transparent" value="rayhanalshorif@gmail.com" />
-        <input type="password" placeholder="Password" className="w-[400px] h-[50px] border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1B74E4] focus:border-transparent mt-4" />
-        <button type="button" className="w-[400px] h-[47px] bg-[#1B74E4] text-white font-bold text-[1.2rem] rounded-lg mt-4 focus:outline-none focus:ring-2 focus:ring-[#1B74E4] focus:border-transparent">Log In</button>
-        <a href="#" className="text-[#5592e1] text-[1rem] font-bold mt-4 hover:underline">Forgotten password?</a>
-        <hr className="w-[400px] mt-4" />
-        <button type="button" className="w-[250px] h-[47px] bg-[#42B72A] text-white font-bold text-[1.1rem] rounded-lg mt-4 focus:outline-none focus:ring-2 focus:ring-[#1877F2] focus:border-transparent">Create New Account</button>
-        <button onClick={() => userController.handleGoogleSignIn()} type="button" className="group hover:group-first:bg-white w-[250px] h-[47px] hover:bg-[#1B74E4] hover:text-white font-bold text-[1.1rem] rounded-lg mt-4  focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-[#1B74E4]  border py-3.5 border-[#1B74E4] flex items-center hover:bg-">
-         <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg" className='m-[3px] p-[10px] group group-hover:bg-white' alt="google" />
-         <p className="text-base font-medium ml-4 text-gray-700  hover:text-white group group-hover:text-white">Continue with Google</p>
-        </button>
-       </form>
-      </div>
-      <div className="flex items-center justify-center mt-4">
-       <p className="text-[1rem]"><span className="font-bold cursor-pointer hover:underline">Create a Page</span> for a celebrity, band or business.</p>
-      </div>
+     <div className="mt-40">
+      <Form />
      </div>
+    </div>
+    <div className='mt-40 bg-white'>
+     <Footer />
     </div>
    </main>
   </div>
