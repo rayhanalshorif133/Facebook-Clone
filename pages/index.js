@@ -15,16 +15,16 @@ export default function Home() {
   if (!session) return <Login />;
   // userController.userCreateOrUpdate(session);
   return (
-    <div className='h-screen bg-gray-100 overflow-hidden'>
+    <div className='h-screen  overflow-hidden bg-black'>
       <Head>
         <link rel="icon" href="/assets/icons/facebook_logo_icon.ico" sizes="any" />
         <title>Facebook</title>
       </Head>
       <Header />
-      <main className='flex bg-[#18191A]'>
-        <Sidebar />
+      <main className='xl:flex bg-[#18191A]'>
+        {/* <Sidebar /> */}
         <Feed />
-        <Widgets />
+        {/* <Widgets /> */}
       </main>
     </div>
   )

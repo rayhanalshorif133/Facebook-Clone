@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import { FaSearch, FaHome, FaBars, FaUserFriends, FaFacebookMessenger, FaBell, FaTv, FaStore, FaGamepad } from "react-icons/fa";
+import { FaSearch, FaHome, FaBars, FaUserFriends, FaFacebookMessenger, FaBell, FaTv, FaStore, FaGamepad,FaPhotoVideo } from "react-icons/fa";
 import { FiArrowLeft, FiHome } from "react-icons/fi";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import HeaderMiddleIcons from "./HeaderMiddleIcons";
@@ -30,7 +30,7 @@ export default function Index() {
   return (
     <div className="">
       {/* For Small Device */}
-      <div className="bg-[#242526] h-auto lg:hidden">
+      <div className="bg-[#242526] h-auto xl:hidden">
         <div className="flex justify-between px-3">
           <div>
             <h2 className="text-white text-[2rem] font-bold">facebook</h2>
@@ -51,12 +51,10 @@ export default function Index() {
             <SmHeaderIcons Icon={FaStore} />
           </div>
         </div>
-        <div className="bg-[#242526] h-auto lg:hidden border-t-2 border-black">
-          Hello
-        </div>
+        
       </div>
 
-      <div className="flex bg-[#242526] h-14 shadow-sm border-b border-gray-700 sm:hidden lg:inline-flex">
+      <div className="flex bg-[#242526] h-14 shadow-sm border-b border-gray-700 sm:hidden xl:inline-flex">
         <div className="text-white flex">
           {
             isFocusSearch ? <Image className="m-2 ml-4" src="/assets/images/logos/facebook_logo.png" width={40} height={40} alt="facebook_logo" /> : <div onClick={handleSearchOptionReset} className="w-10 h-10 m-2 mr-2 ml-4 p-2 cursor-pointer hover:bg-[#3A3B3C] rounded-full items-center text-center mx-auto">
