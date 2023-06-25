@@ -1,9 +1,8 @@
-import Header from '@/components/Header'
-import HeaderNew from '@/components/Header/Index'
+import Header from '@/components/Header/Index'
 import Login from '@/components/Login/index'
-import Sidebar from '@/components/Sidebar'
+import Sidebar from '@/components/home/Sidebar'
 import Feed from '@/components/feed/Index'
-import Widgets from '@/components/widgets/Index'
+import Widgets from '@/components/home/widgets/Index'
 import userController from '@/controllers/UserController'
 import { getSession, useSession } from 'next-auth/react'
 import Head from 'next/head'
@@ -21,8 +20,7 @@ export default function Home() {
         <link rel="icon" href="/assets/icons/facebook_logo_icon.ico" sizes="any" />
         <title>Facebook</title>
       </Head>
-      <HeaderNew />
-      {/* <Header /> */}
+      <Header />
       <main className='flex bg-[#18191A]'>
         <Sidebar />
         <Feed />
