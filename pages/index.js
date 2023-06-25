@@ -1,4 +1,5 @@
 import Header from '@/components/Header'
+import HeaderNew from '@/components/Header/Index'
 import Login from '@/components/Login/index'
 import Sidebar from '@/components/Sidebar'
 import Feed from '@/components/feed/Index'
@@ -20,8 +21,8 @@ export default function Home() {
         <link rel="icon" href="/assets/icons/facebook_logo_icon.ico" sizes="any" />
         <title>Facebook</title>
       </Head>
-      {/* <HeaderNew /> */}
-      <Header />
+      <HeaderNew />
+      {/* <Header /> */}
       <main className='flex bg-[#18191A]'>
         <Sidebar />
         <Feed />

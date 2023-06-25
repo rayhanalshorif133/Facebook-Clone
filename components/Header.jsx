@@ -28,7 +28,7 @@ export default function Header() {
             </div>
             {/* Middle Section */}
             <div className='flex justify-center flex-grow'>
-                <div className='flex space-x-6 md:space-x-2 '>
+                <div className='flex space-x-8  md:space-x-2'>
                     <HeaderIcon active={true} Icon={FaHome} />
                     <HeaderIcon Icon={FaFontAwesomeFlag} />
                     <HeaderIcon Icon={FiPlayCircle} />
