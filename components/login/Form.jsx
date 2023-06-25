@@ -1,11 +1,20 @@
 import userController from "@/controllers/UserController";
+import { useState } from "react";
 
 export default function Form() {
+
+  const [userName, setUserName] = useState('rayhanalshorif@gmail.com');
+
+  const handleUserName = (e) => {
+    setUserName(e.target.value);
+  }
+
   return (
     <>
       <div className="bg-white p-5 shadow-lg rounded-2xl">
         <form className="flex flex-col items-center justify-center">
-          <input type="text" placeholder="Email address or phone number" className="w-[400px] h-[50px] border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1B74E4] focus:border-transparent" value="rayhanalshorif@gmail.com" />
+          <input type="text" placeholder="Email address or phone number" 
+          className="w-[400px] h-[50px] border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1B74E4] focus:border-transparent" onChange={handleUserName} />
           <input type="password" placeholder="Password" className="w-[400px] h-[50px] border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#1B74E4] focus:border-transparent mt-4" />
           <button type="button" className="w-[400px] h-[47px] bg-[#1B74E4] text-white font-bold text-[1.2rem] rounded-lg mt-4 focus:outline-none focus:ring-2 focus:ring-[#1B74E4] focus:border-transparent">Log In</button>
           <a href="#" className="text-[#5592e1] text-[1rem] font-bold mt-4 hover:underline">Forgotten password?</a>

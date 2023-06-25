@@ -34,7 +34,9 @@ export default function Home() {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  userController.userCreateOrUpdate(session);
+  if(session){
+    userController.userCreateOrUpdate(session);
+  }
 
   return {
     props: {

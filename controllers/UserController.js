@@ -1,4 +1,6 @@
+import connectDB, { db } from "@/database/mongodb";
 import { userRef } from "@/database/reference";
+import User from "@/models/User";
 import { collection } from "firebase/firestore";
 import { addDoc, getDocs } from "firebase/firestore/lite";
 import { signIn, signOut } from "next-auth/react";
@@ -7,18 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const userController = {};
 
-
-const updateUserStatus = async (session, status) => {
-
-
-    const userRef = collection(db, 'users');
-
-
-
-
-    return true;
-};
-
+// Auth with Google
 userController.handleGoogleSignIn = () => {
     signIn('google', { callbackUrl: 'http://localhost:3000' });
 }
@@ -28,9 +19,41 @@ userController.handleLogout = async (session) => {
 };
 
 
+const updateUserStatus = async (session, status) => {
+    
+};
+
+
+
 userController.userCreateOrUpdate = async (session) => {
+    await connectDB();
+    const {name, email, image} = session?.user;
+    const data = await User.findOne({email: email});
+    if(data){
+        const doc = await User.findOneAndUpdate(
+            {email: email},
+            {activeStatus: true},
+            { new: true }
+          );
+        return doc;
+    }else{
+        const doc = await User.create({
+            name: name,
+            email: email,
+            image: image,
+            activeStatus: true,
+        });
+        return doc;
+    }
+
 
 }
+
+userController.getUsers = async (session) => {
+
+}
+
+
 
 
 const isExistUser = async (session) => {
