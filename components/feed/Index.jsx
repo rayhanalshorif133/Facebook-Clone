@@ -11,7 +11,7 @@ export default function Feed() {
       <span className='xl:hidden'>
         <SmStories />
       </span>
-      <div className='hidden flex justify-center w-1/2 items-center mx-auto xl:inline-flex'>
+      <div className='hidden justify-center w-3/4 items-center mx-auto xl:inline-flex'>
         <Stories />
       </div>
       <div className="hidden scrollbar-hide flex-grow h-screen pb-44 pt-6 mr-4 xl:mr-40 overflow-y-auto">

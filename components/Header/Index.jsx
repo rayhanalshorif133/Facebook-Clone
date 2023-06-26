@@ -51,7 +51,6 @@ export default function Index() {
             <SmHeaderIcons Icon={FaStore} />
           </div>
         </div>
-        
       </div>
 
       {/* For Large Device */}

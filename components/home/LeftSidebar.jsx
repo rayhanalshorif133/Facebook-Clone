@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSession } from "next-auth/react"
 import { FaShoppingBag,FaTv, FaChevronDown, FaUsers, FaCalendarMinus, FaClock,FaUserFriends } from "react-icons/fa";
-import SidebarRow from './SidebarRow';
+import SidebarRow from './sidebar/SidebarRow';
 
 
 export default function Sidebar() {
