@@ -23,7 +23,7 @@ export default function Home() {
       <Header />
       
       <main className='xl:flex bg-[#18191A]'>
-        <Sidebar />
+        <span className='hidden xl:inline-flex'><Sidebar /></span>
         <Feed />
         <span className='hidden xl:inline-flex'><Widgets /></span>
       </main>

@@ -8,6 +8,7 @@ import { useSession } from 'next-auth/react';
 import HeaderRightIcons from "./HeaderRightIcons";
 import userController from "@/controllers/UserController";
 import SmHeaderIcons from "./_partials/SmHeaderIcons";
+import {FiUsers} from 'react-icons/fi';
 
 
 export default function Index() {
@@ -72,7 +73,7 @@ export default function Index() {
         <div className='flex justify-center sm:mx-[3rem] xl:ml-[18rem] xl:mr-[26.8rem]'>
           <div className='flex space-x-6 md:space-x-2'>
             <HeaderMiddleIcons Icon={FaHome} active={true} />
-            <HeaderMiddleIcons Icon={FaUserFriends} />
+            <HeaderMiddleIcons Icon={FiUsers} />
             <HeaderMiddleIcons Icon={FaTv} />
             <HeaderMiddleIcons Icon={FaStore} />
             <HeaderMiddleIcons Icon={FaGamepad} />
