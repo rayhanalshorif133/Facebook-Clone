@@ -6,8 +6,8 @@ import AddStoryCard from './AddStoryCard';
 
 export default function StoryIndex() {
   return (
-    <div className='bg-[#242526] h-auto xl:hidden w-full'>
-      <div className="bg-[#242526] w-full h-auto xl:hidden border-t-2 border-black flex overflow-hidden">
+    <div className='bg-[#242526] h-auto w-full'>
+      <div className="bg-[#242526] w-full h-auto border-t-2 border-black flex overflow-hidden">
         <ScrollingCarousel show={3.1} slide={3} swiping={true}>
           <AddStoryCard/>
           <StoryCard/>
