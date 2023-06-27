@@ -3,7 +3,7 @@ import { default as SmStories, default as Stories } from './story'
 
 export default function Feed() {
   return (
-    <div className='flex flex-col 2xl:ml-28'>
+    <div className='flex flex-col 2xl:ml-28 xl:ml-1'>
       <SmInputBox />
       <span className='xl:hidden'>
         <SmStories />
