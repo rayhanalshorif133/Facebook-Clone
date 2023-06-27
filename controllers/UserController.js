@@ -20,23 +20,23 @@ userController.handleLogout = async (session) => {
 
 
 const updateUserStatus = async (session, status) => {
-    
+
 };
 
 
 
 userController.userCreateOrUpdate = async (session) => {
     await connectDB();
-    const {name, email, image} = session?.user;
-    const data = await User.findOne({email: email});
-    if(data){
+    const { name, email, image } = session?.user;
+    const data = await User.findOne({ email: email });
+    if (data) {
         const doc = await User.findOneAndUpdate(
-            {email: email},
-            {activeStatus: true},
+            { email: email },
+            { activeStatus: true },
             { new: true }
-          );
+        );
         return doc;
-    }else{
+    } else {
         const doc = await User.create({
             name: name,
             email: email,
