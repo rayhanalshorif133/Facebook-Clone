@@ -1,14 +1,13 @@
+import userController from "@/controllers/UserController";
+import { useSession } from 'next-auth/react';
 import Image from "next/image";
 import { useState } from "react";
-import { FaSearch, FaHome, FaBars, FaUserFriends, FaFacebookMessenger, FaBell, FaTv, FaStore, FaGamepad,FaPhotoVideo } from "react-icons/fa";
-import { FiArrowLeft, FiHome } from "react-icons/fi";
 import { BsFillGrid3X3GapFill } from "react-icons/bs";
+import { FaBars, FaBell, FaFacebookMessenger, FaGamepad, FaHome, FaSearch, FaStore, FaTv, FaUserFriends } from "react-icons/fa";
+import { FiArrowLeft, FiHome, FiUsers } from "react-icons/fi";
 import HeaderMiddleIcons from "./HeaderMiddleIcons";
-import { useSession } from 'next-auth/react';
 import HeaderRightIcons from "./HeaderRightIcons";
-import userController from "@/controllers/UserController";
 import SmHeaderIcons from "./_partials/SmHeaderIcons";
-import {FiUsers} from 'react-icons/fi';
 
 
 export default function Index() {
@@ -18,7 +17,6 @@ export default function Index() {
 
   const { image } = session?.user;
 
-  // const image = 'https://picsum.photos/300/300?random=1';
 
 
   const handleSearchOption = () => {
@@ -67,7 +65,8 @@ export default function Index() {
             {
               isFocusSearch && <FaSearch className="w-4 h-4 text-gray-300 mr-2 transition ease-in-out delay-150" />
             }
-            <input onClick={handleSearchOption} className="hidden md:inline-flex bg-[#3A3B3C] outline-none rounded-full h-6 w-44 text-white placeholder-gray-400" type="text" placeholder="Search Facebook" />
+            <input onClick={handleSearchOption} placeholder="Search Facebook" className="caret-white  hidden md:inline-flex outline-none bg-[#3A3B3C] w-44" />
+
           </div>
         </div>
         <div className='flex justify-center sm:mx-[3rem] xl:ml-[18rem] xl:mr-[26.8rem]'>
