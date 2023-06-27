@@ -1,12 +1,9 @@
-import React from 'react'
 import SmInputBox from './smallDevice/InputBox'
-import Posts from './Posts'
-import SmStories from './story'
-import Stories from './story'
+import { default as SmStories, default as Stories } from './story'
 
 export default function Feed() {
   return (
-    <div className='flex flex-col xl:ml-28'>
+    <div className='flex flex-col 2xl:ml-28'>
       <SmInputBox />
       <span className='xl:hidden'>
         <SmStories />
