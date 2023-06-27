@@ -70,7 +70,7 @@ export default function Index() {
           </div>
         </div>
         <div className='flex justify-center sm:mx-[3rem] xl:ml-[6rem] xl:mr-[26.8rem]'>
-          <div className='flex space-x-6 md:space-x-2'>
+          <div className='flex space-x-6 xl:space-x-1 md:space-x-2'>
             <HeaderMiddleIcons Icon={FaHome} active={true} />
             <HeaderMiddleIcons Icon={FiUsers} />
             <HeaderMiddleIcons Icon={FaTv} />
