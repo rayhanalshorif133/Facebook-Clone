@@ -7,6 +7,10 @@ import StoryCard from './StoryCard';
 import StoryNav from './StoryNav';
 
 export default function StoryIndex() {
+
+
+  const numberOfStory = 20;
+
   return (
     <div className='bg-[#242526] h-auto w-full'>
       <div className='hidden xl:flex justify-between mx-auto'>
@@ -17,10 +21,12 @@ export default function StoryIndex() {
       <div className="bg-[#242526] w-full h-auto border-t-2 border-black xl:border-t-0 xl:border-none flex overflow-hidden">
         <ScrollingCarousel show={4} slide={4} swiping={true}>
           <AddStoryCard />
-          <StoryCard />
-          <StoryCard />
-          <StoryCard />
-          <StoryCard />
+          {
+            Array(numberOfStory).fill().map((_, i) => (
+              <StoryCard key={i} />
+            ))
+          }
+          
         </ScrollingCarousel>
       </div>
     </div>
