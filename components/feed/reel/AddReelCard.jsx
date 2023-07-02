@@ -1,7 +1,5 @@
 import React from 'react'
 import { useSession } from 'next-auth/react';
-import Image from 'next/image';
-import { FaPlus } from 'react-icons/fa';
 
 export default function AddReelCard() {
     const { data: session } = useSession();

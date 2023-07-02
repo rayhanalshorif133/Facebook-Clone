@@ -3,7 +3,8 @@ import Image from 'next/image';
 export default function StoryCard() {
 
   // random number generator
-  const random = Math.floor(Math.random() * 100);
+  // const random = Math.floor(Math.random() * 100);
+  const random = 2;
 
 
   return (

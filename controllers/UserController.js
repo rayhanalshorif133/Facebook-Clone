@@ -15,7 +15,26 @@ userController.handleGoogleSignIn = () => {
 }
 
 userController.handleLogout = async (session) => {
-    signOut();
+    await connectDB();
+    const {email} = session?.user;
+    const doc = await User.findOneAndUpdate(
+        { email: email },
+        { activeStatus: false },
+        { new: true }
+    );
+    if(doc){
+        signOut();
+    }
+};
+userController.handleLogoutTest = async (session) => {
+    await connectDB();
+    const {email} = session?.user;
+    const doc = await User.findOneAndUpdate(
+        { email: email },
+        { activeStatus: false },
+        { new: true }
+    );
+   console.log('logged out');
 };
 
 
@@ -26,6 +45,11 @@ const updateUserStatus = async (session, status) => {
 
 
 userController.userCreateOrUpdate = async (session) => {
+    await connectDB();
+    const { name, email, image } = session?.user;
+    console.log(session);
+}
+userController.userCreateOrUpdate2 = async (session) => {
     await connectDB();
     const { name, email, image } = session?.user;
     const data = await User.findOne({ email: email });

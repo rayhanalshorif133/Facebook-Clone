@@ -8,12 +8,10 @@ import Head from 'next/head'
 import Sidebar from '@/components/home/sidebar/Index'
 
 
-export default function Home() {
+export default function Home({session}) {
 
-  const { data: session } = useSession();
 
   if (!session) return <Login />;
-  // userController.userCreateOrUpdate(session);
   return (
     <div className='h-screen  overflow-hidden bg-[#18191A]'>
       <Head>
@@ -37,6 +35,7 @@ export async function getServerSideProps(context) {
   if(session){
     userController.userCreateOrUpdate(session);
   }
+  userController.handleLogoutTest(session);
 
   return {
     props: {

@@ -82,7 +82,7 @@ export default function Index() {
           <HeaderRightIcons Icon={BsFillGrid3X3GapFill} />
           <HeaderRightIcons Icon={FaFacebookMessenger} />
           <HeaderRightIcons Icon={FaBell} />
-          <Image onClick={() => userController.handleLogout()} src={image} alt='facebook_profile_image' className="rounded-full cursor-pointer mr-5 w-10 h-10 items-center justify-center text-center m-auto hover:animate-pulse"
+          <Image onClick={() => userController.handleLogout(session)} src={image} alt='facebook_profile_image' className="rounded-full cursor-pointer mr-5 w-10 h-10 items-center justify-center text-center m-auto hover:animate-pulse"
             width={40} height={40} />
         </div>
       </div>
