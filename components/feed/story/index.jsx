@@ -14,7 +14,7 @@ export default function StoryIndex() {
   return (
     <div className='bg-[#242526] h-auto w-full'>
       <div className='hidden xl:flex justify-between mx-auto'>
-        <StoryNav Icon={TfiBook} title="Stories" />
+        <StoryNav Icon={TfiBook} title="Stories"  isActive={true}/>
         <StoryNav Icon={MdOndemandVideo} title="Reels" />
         <StoryNav Icon={TbVideoPlus} title="Rooms" />
       </div>
