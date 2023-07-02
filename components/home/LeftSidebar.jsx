@@ -7,7 +7,7 @@ import SidebarRow from './sidebar/SidebarRow';
 export default function Sidebar() {
  const { data:session, status } = useSession()
   return (
-    <div className='p-2 mt-5 max-w-[600px] xl:min-w-[300px] text-white'>
+    <div className='p-1 mt-5 max-w-[600px] xl:min-w-[300px] text-white'>
         <SidebarRow src={session.user?.image} title={session.user?.name}/>
         <SidebarRow Icon={FaUserFriends} title="Friends"/>
         <SidebarRow Icon={FaUsers} title="Groups"/>
