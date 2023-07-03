@@ -22,7 +22,7 @@ export default function Index() {
         <div className='border-b-1 border-gray-500 pb-2'>
             <h2 className='font-semibold text-base text-gray-400'>Sponsored</h2>
             <Suspense fallback={<Loading isBg={false} />}>
-                <a href={sponsored?.url} target='_blank' className='flex flex-col space-y-2 mt-5 cursor-pointer'>
+                <a href={sponsored?.url} target='_blank' className='flex flex-col space-y-2 mt-2 cursor-pointer'>
                     <div className='flex items-center justify-between hover:bg-[#303031] rounded-xl p-1'>
                         <img className='w-28 h-28 m-2 rounded-sm' src={sponsored?.src} alt='' />
                         <div className='flex flex-col space-y-1 justify-start items-start m-auto'>
