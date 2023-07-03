@@ -1,4 +1,3 @@
-import userController from '@/controllers/UserController'
 import { useSession } from 'next-auth/react';
 import Image from 'next/image'
 import React from 'react'
@@ -12,7 +11,7 @@ export default function InputBox() {
         <div className='bg-[#242526] h-auto xl:hidden w-full'>
             <div className="justify-between bg-[#242526] w-full h-auto xl:hidden border-t-2 border-black flex">
                 <div className="">
-                    <Image onClick={() => userController.handleLogout()} src={image} alt='facebook_profile_image'
+                    <Image  src={image} alt='facebook_profile_image'
                         className="rounded-full cursor-pointer ml-2 w-12 h-12 md:w-14 sm:my-0 md:my-1 md:h-14 items-center justify-center text-center m-auto hover:animate-pulse"
                         width={40} height={40} />
                 </div>

@@ -2,16 +2,20 @@ import Header from '@/components/Header/Index'
 import Login from '@/components/Login/index'
 import Feed from '@/components/feed/Index'
 import Widgets from '@/components/home/widgets/Index'
-import userController from '@/controllers/UserController'
 import { getSession, useSession } from 'next-auth/react'
 import Head from 'next/head'
 import Sidebar from '@/components/home/sidebar/Index'
+import axios from 'axios'
 
 
 export default function Home({session}) {
 
-
   if (!session) return <Login />;
+
+  if(session){
+    axios.post('/api/user/modify',session);
+  }
+
   return (
     <div className='h-screen  overflow-hidden bg-[#18191A]'>
       <Head>
@@ -32,11 +36,6 @@ export default function Home({session}) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  if(session){
-    userController.userCreateOrUpdate(session);
-  }
-  userController.handleLogoutTest(session);
-
   return {
     props: {
       session,

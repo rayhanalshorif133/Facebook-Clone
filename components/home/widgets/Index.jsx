@@ -1,37 +1,24 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 import { FaVideo,FaSistrix,FaEllipsisH } from "react-icons/fa";
 import Contact from './Contact';
-import userController from '@/controllers/UserController';
-const contacts = [
-    {
-      id: 1,
-      name: "Rayhan Al Shorif",
-      src: "https://rebrand.ly/ukck8ia",
-    },
-    {
-      id: 2,
-      name: "Elon Musk",
-      src: "https://links.papareact.com/kxk",
-    },
-    {
-      id: 3,
-      name: "Jeff Bezoz",
-      src: "https://links.papareact.com/kxk",
-    },{
-      id: 4,
-      name: "Mark Zuckerberg",
-      src: "https://links.papareact.com/snf",
-    },{
-      id: 5,
-      name: "Bill Gates",
-      src: "https://links.papareact.com/zvy",
-    }
-  ];
-
-export default function Index() {
+import axios from 'axios';
+import { getSession } from 'next-auth/react'
+export default function Index({session}) {
 
 
-  userController.getUsers();
+  const [contacts,setContacts] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/user/get',{
+      params:{
+        type:'active',
+        containsUser: session
+      }
+    }).then(res => {
+      setContacts(res.data.data);
+    }).catch(err => console.log(err));
+  },[1]);
+
 
   return (
     <div className="lg:flex flex-col w-60 p-2 mt-5">
@@ -43,10 +30,24 @@ export default function Index() {
                 <FaEllipsisH className='h-6'/>
             </div>
         </div>
-        {contacts.map(contact => (
-            <Contact key={contact.id} src={contact.src} name={contact.name}/>
+        {
+          console.log(contacts)
+        }
+        {contacts && contacts.map(contact => (
+            <Contact key={contact.id} src={contact.image} name={contact.name}/>
         )
         )}
     </div>
   )
+}
+
+
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  return {
+    props: {
+      session,
+    }
+  }
 }

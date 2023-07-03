@@ -1,5 +1,5 @@
-import userController from "@/controllers/UserController";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 export default function Form() {
 
@@ -8,6 +8,10 @@ export default function Form() {
   const handleUserName = (e) => {
     setUserName(e.target.value);
   }
+
+  const handleGoogleSignIn = (e) => {
+    signIn('google', { callbackUrl: 'http://localhost:3000' });
+  };
 
   return (
     <>
@@ -20,7 +24,7 @@ export default function Form() {
           <a href="#" className="text-[#5592e1] text-[1rem] font-bold mt-4 hover:underline">Forgotten password?</a>
           <hr className="w-[400px] xl:w-[350px] mt-4" />
           <button type="button" className="w-[250px] h-[47px] bg-[#42B72A] text-white font-bold text-[1.1rem] rounded-lg mt-4 focus:outline-none focus:ring-2 focus:ring-[#1877F2] focus:border-transparent">Create New Account</button>
-          <button onClick={() => userController.handleGoogleSignIn()} type="button" className="group hover:group-first:bg-white w-[250px] h-[47px] hover:bg-[#1B74E4] hover:text-white font-bold text-[1.1rem] rounded-lg mt-4  focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-[#1B74E4]  border py-3.5 border-[#1B74E4] flex items-center hover:bg-">
+          <button onClick={() => handleGoogleSignIn()} type="button" className="group hover:group-first:bg-white w-[250px] h-[47px] hover:bg-[#1B74E4] hover:text-white font-bold text-[1.1rem] rounded-lg mt-4  focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-[#1B74E4]  border py-3.5 border-[#1B74E4] flex items-center hover:bg-">
             <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sign_in-svg2.svg" className='m-[3px] p-[10px] group group-hover:bg-white' alt="google" />
             <p className="text-base font-medium ml-4 text-gray-700  hover:text-white group group-hover:text-white">Continue with Google</p>
           </button>
