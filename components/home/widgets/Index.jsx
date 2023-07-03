@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { FaVideo, FaSistrix, FaEllipsisH } from "react-icons/fa";
 import Sponsored from './Sponsored/Index';
+import PageAndProfile from './PageAndProfile/Index';
+import Birthdays from './Birthdays/Index';
+import Contacts from './Contacts/Index';
 import axios from 'axios';
 import { useSession } from 'next-auth/react'
 export default function Index() {
@@ -22,9 +25,12 @@ export default function Index() {
 
 
   return (
-    <div className='mr-2 w-[22rem] xl:w-[18rem]'>
-      <div className='flex flex-col mt-3 xl:mt-2'>
+    <div className='mr-2 xl:hidden 2xl:inline-flex 2xl:w-[22rem]'>
+      <div className='flex flex-col mt-3 xl:mt-2 h-screen overflow-y-auto'>
         <Sponsored />
+        <PageAndProfile />
+        <Birthdays />
+        <Contacts />
       </div>
     </div>
   )
