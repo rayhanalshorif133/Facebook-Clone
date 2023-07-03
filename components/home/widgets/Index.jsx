@@ -8,7 +8,6 @@ import axios from 'axios';
 import { useSession } from 'next-auth/react'
 export default function Index() {
 
-
   const [contacts, setContacts] = useState([]);
   const { data: session } = useSession();
 

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  
+
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -25,6 +25,10 @@ module.exports = {
         '1': '1px',
       },
     },
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'gray-hover': '#303031',
+    })
   },
   plugins: [
     require('tailwind-scrollbar-hide'),
