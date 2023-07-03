@@ -41,7 +41,7 @@ export default function Index() {
   return (
     <div className="">
       {/* For Small Device */}
-      <div className="bg-[#242526] h-auto xl:hidden">
+      <div className="bg-[#242526] h-auto xl:hidden ">
         <div className="flex justify-between px-3">
           <div>
             <h2 className="text-white text-[2rem] font-bold">facebook</h2>
@@ -90,7 +90,7 @@ export default function Index() {
             <HeaderMiddleIcons Icon={FaGamepad} />
           </div>
         </div>
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 mr-2">
           <HeaderRightIcons Icon={BsFillGrid3X3GapFill} />
           <HeaderRightIcons Icon={FaFacebookMessenger} />
           <HeaderRightIcons Icon={FaBell} />
