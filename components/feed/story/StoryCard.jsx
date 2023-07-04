@@ -2,6 +2,7 @@
 export default function StoryCard({ random }) {
 
 
+  random = random + 1;
   const URL = `https://picsum.photos/200/300?random=${random}`;
 
   return (

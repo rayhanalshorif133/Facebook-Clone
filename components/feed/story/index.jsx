@@ -42,7 +42,7 @@ export default function StoryIndex() {
   };
 
   return (
-    <div className='bg-[#242526] h-auto w-full'>
+    <div className='bg-[#242526] h-auto w-full rounded-xl'>
       <div className='hidden xl:flex justify-between mx-auto'>
         <StoryNav Icon={TfiBook} title="Stories" isActiveStatus={isActive.stories} clickAbleToggle={handleStories}/>
         <StoryNav Icon={MdOndemandVideo} title="Reels" isActiveStatus={isActive.reels} clickAbleToggle={handleReels}/>

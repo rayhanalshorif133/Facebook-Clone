@@ -12,7 +12,7 @@ export default function InputBox() {
   const { image, name } = session?.user;
 
   return (
-    <div className='bg-[#242526] h-auto w-full'>
+    <div className='bg-[#242526] h-auto w-full rounded-xl'>
       <div className='flex justify-start m-2 pb-2 border-b-1 border-gray-600'>
         <Image src={image} alt={name} height={40} width={40} className='ml-2 h-10 w-10 rounded-full cursor-pointer' />
         <input type='text' className='bg-[#3a3b3c] text-white rounded-full h-10 w-11/12 px-5 ml-2 mr-2 outline-none focus:outline-none ' placeholder={`What's on your mind, ${name}?`} />

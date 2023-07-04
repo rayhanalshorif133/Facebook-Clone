@@ -39,7 +39,7 @@ export default function Index() {
   }
 
   return (
-    <div className="">
+    <div className="sticky top-0 z-30">
       {/* For Small Device */}
       <div className="bg-[#242526] h-auto xl:hidden ">
         <div className="flex justify-between px-3">
@@ -65,7 +65,7 @@ export default function Index() {
       </div>
 
       {/* For Large Device */}
-      <div className="flex bg-[#242526] h-14 shadow-sm border-b border-gray-700 sm:hidden xl:inline-flex w-full">
+      <div className="flex bg-[#242526] h-14 shadow-sm border-b border-gray-700 sm:hidden xl:inline-flex w-full  overflow-hidden">
         <div className="text-white flex">
           {
             isFocusSearch ? <Image className="m-2 ml-4 h-10 w-10" src="/assets/images/logos/facebook_logo.png" width={40} height={40} alt="facebook_logo" /> : <div onClick={handleSearchOptionReset} className="w-10 h-10 m-2 mr-2 ml-4 p-2 cursor-pointer hover:bg-[#3A3B3C] rounded-full items-center text-center mx-auto">

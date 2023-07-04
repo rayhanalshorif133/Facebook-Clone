@@ -17,16 +17,16 @@ export default function Home({session}) {
   }
 
   return (
-    <div className='h-screen  overflow-hidden bg-[#18191A]'>
+    <div className='h-screen bg-[#18191A] overflow-x-hidden'>
       <Head>
         <link rel="icon" href="/assets/icons/facebook_logo_icon.ico" sizes="any" />
         <title>Facebook</title>
       </Head>
       <Header />
       <main className='xl:flex bg-[#18191A]'>
-        <span className='hidden xl:inline-flex'><Sidebar /></span>
+        <span className='hidden xl:inline-flex overflow-y-hidden'><Sidebar /></span>
         <Feed />
-        <span className='hidden xl:inline-flex'><Widgets /></span>
+        <span className='hidden xl:inline-flex overflow-y-hidden'><Widgets /></span>
       </main>
     </div>
   )
