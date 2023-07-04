@@ -3,6 +3,14 @@ import DBConnection from "@/utils/DBConnection";
 
 // /api/user/modify
 export default async function userCreateOrUpdate(req, res) {
+
+    if (res) {
+        res.setHeader('Cache-Control', 'no-store');
+        res.setHeader('Cache-Control', 's-maxage=0, stale-while-revalidate');
+    }
+
+
+
     await DBConnection();
     const { name, email, image } = req.body?.user;
     const data = await User.findOne({ email: email });

@@ -16,14 +16,14 @@ export default function Index() {
 
   const email = session?.user?.email;
 
-  // useEffect(() => {
-  //   axios.post('/api/user/fetch', {
-  //     type: 'active',
-  //     email
-  //   }).then(res => {
-  //     setContacts(res.data.data);
-  //   }).catch(err => console.log(err));
-  // }, [email]);
+  useEffect(() => {
+    axios.post('/api/user/fetch', {
+      type: 'active',
+      email
+    }).then(res => {
+      setContacts(res.data.data);
+    }).catch(err => console.log(err));
+  }, [email]);
 
   return (
     <div className='border-b-1 border-gray-500 py-1'>
@@ -39,7 +39,7 @@ export default function Index() {
       </div>
       <Suspense fallback={<Loading isBg={false} />}>
         {contacts && contacts.map(contact => (
-          <Contact key={contact.id} image={contact.image} name={contact.name} />
+          <Contact key={contact._id} image={contact.image} name={contact.name} />
         )
         )}
       </Suspense>
