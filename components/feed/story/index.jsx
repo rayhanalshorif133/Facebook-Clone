@@ -42,13 +42,13 @@ export default function StoryIndex() {
   };
 
   return (
-    <div className='bg-[#242526] h-auto w-full pb-3'>
+    <div className='bg-[#242526] h-auto w-full'>
       <div className='hidden xl:flex justify-between mx-auto'>
         <StoryNav Icon={TfiBook} title="Stories" isActiveStatus={isActive.stories} clickAbleToggle={handleStories}/>
         <StoryNav Icon={MdOndemandVideo} title="Reels" isActiveStatus={isActive.reels} clickAbleToggle={handleReels}/>
         <StoryNav Icon={TbVideoPlus} title="Rooms" isActiveStatus={isActive.rooms} clickAbleToggle={handleRooms}/>
       </div>
-      <div className="bg-[#242526] w-full h-auto border-t-2 border-black xl:border-t-0 xl:border-none flex overflow-hidden">
+      <div className="bg-[#242526] w-full h-auto border-t-2 border-black xl:border-t-0 xl:border-none flex">
         <ScrollingCarousel show={4} slide={4} swiping={true}>
           {
             isActive.stories === true? <AddStoryCard /> : <AddReelCard />

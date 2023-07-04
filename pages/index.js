@@ -23,7 +23,6 @@ export default function Home({session}) {
         <title>Facebook</title>
       </Head>
       <Header />
-      
       <main className='xl:flex bg-[#18191A]'>
         <span className='hidden xl:inline-flex'><Sidebar /></span>
         <Feed />
