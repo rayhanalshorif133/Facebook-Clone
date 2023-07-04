@@ -4,7 +4,14 @@ export default function ShowLikesAndComments({number}) {
 
     // make a random number
     
-    const emojis = ['angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking'];
+    const emojis = ['angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
+    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
+    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
+    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
+    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
+    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
+    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking'
+];
 
     // make a random emoji
     const emoji_1 = emojis[number + 1];

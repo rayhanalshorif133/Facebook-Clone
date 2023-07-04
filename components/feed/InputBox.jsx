@@ -7,6 +7,7 @@ import postController from '@/controllers/PostController';
 
 
 
+
 export default function InputBox() {
 
     const { data: session } = useSession();
