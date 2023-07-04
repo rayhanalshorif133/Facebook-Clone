@@ -24,9 +24,9 @@ export default function Home({session}) {
       </Head>
       <Header />
       <main className='xl:flex bg-[#18191A]'>
-        <span className='hidden xl:inline-flex overflow-y-hidden'><Sidebar /></span>
+        <span className='hidden xl:inline-flex'><Sidebar /></span>
         <Feed />
-        <span className='hidden xl:inline-flex overflow-y-hidden'><Widgets /></span>
+        <span className='hidden xl:inline-flex'><Widgets /></span>
       </main>
     </div>
   )
