@@ -1,16 +1,13 @@
-import Image from 'next/image';
 
-export default function StoryCard() {
+export default function StoryCard({ random }) {
 
-  // random number generator
-  // const random = Math.floor(Math.random() * 100);
-  const random = 2;
 
+  const URL = `https://picsum.photos/200/300?random=${random}`;
 
   return (
     <div className='p-1 cursor-pointer'>
-      <Image src={`https://picsum.photos/400?random=${random}`} alt="profile"
-        className="h-[12rem] w-28 rounded-lg object-cover" width={28} height={28} />
+      <img src={URL} alt="profile"
+        className="h-[12rem] w-28 rounded-lg" width={28} height={28} />
     </div>
   )
 }

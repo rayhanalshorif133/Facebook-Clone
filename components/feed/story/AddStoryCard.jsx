@@ -1,5 +1,4 @@
 import { useSession } from 'next-auth/react';
-import Image from 'next/image';
 import { FaPlus } from 'react-icons/fa';
 
 export default function AddStoryCard() {
@@ -11,7 +10,7 @@ export default function AddStoryCard() {
   return (
     <div className='p-1 flex flex-col ml-4 cursor-pointer'>
       <div className='overflow-visible'>
-        <Image src={image} alt="profile"
+        <img src={image} alt="profile"
           className="h-[9rem] w-28 rounded-t-lg object-cover" width={28} height={28} />
         <div className="-mt-5">
           <div className="rounded-full text-white items-center m-auto flex">

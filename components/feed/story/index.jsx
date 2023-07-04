@@ -55,7 +55,7 @@ export default function StoryIndex() {
           }
           {
             Array(numberOfStory).fill().map((_, i) => (
-              <StoryCard key={i} />
+              <StoryCard key={i} random={i}/>
             ))
           }
         </ScrollingCarousel>
