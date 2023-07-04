@@ -1,11 +1,37 @@
 import React from 'react'
+import { BiLike, BiSolidLike,BiComment,BiSolidComment } from 'react-icons/bi'
+import {RiShareForwardLine,RiShareForwardFill} from 'react-icons/ri'
 
 export default function Footer() {
   return (
-    <div className='mx-2 justify-start pb-2'>
-        <p className='text-gray-300 text-base ml-2 my-2'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-        </p>
+    <div className='mx-2 justify-between pb-2 flex text-gray-300 font-medium'>
+      <div className="flex">
+        <div className="flex cursor-pointer hover:bg-gray-hover px-[4.5rem] pt-1 pb-2 rounded-lg items-center m-auto">
+          <BiLike className="h-5 w-5 mt-2 ml-2" />
+          <h2 className="text-base mt-[5px] ml-2">Like</h2>
+        </div>
+        <div className="hidden">
+          <BiSolidLike className="h-5 w-5" /> Like
+        </div>
+      </div>
+      <div className="">
+        <div className="flex cursor-pointer hover:bg-gray-hover px-[4.5rem] pt-1 pb-2 rounded-lg items-center m-auto">
+          <BiComment className="h-5 w-5 mt-2 ml-2" />
+          <h2 className="text-base mt-[5px] ml-2">Comment</h2>
+        </div>
+        <div className="hidden">
+          <BiSolidComment className="h-5 w-5" /> Comment
+        </div>
+      </div>
+      <div className="">
+        <div className="flex cursor-pointer hover:bg-gray-hover px-[4.5rem] pt-1 pb-2 rounded-lg items-center m-auto">
+          <RiShareForwardLine className="h-5 w-5 mt-2 ml-2" />
+          <h2 className="text-base mt-[5px] ml-2">Share</h2>
+        </div>
+        <div className="hidden">
+          <RiShareForwardFill className="h-5 w-5" /> Share
+        </div>
+      </div>
     </div>
   )
 }

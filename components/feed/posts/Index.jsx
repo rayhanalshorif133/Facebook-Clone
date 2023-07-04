@@ -7,6 +7,9 @@ export default function Index() {
             <Post number={1}/>
             <Post number={2}/>
             <Post number={3}/>
+            <Post number={4}/>
+            <Post number={5}/>
+            <Post number={6}/>
         </div>
     )
 }
