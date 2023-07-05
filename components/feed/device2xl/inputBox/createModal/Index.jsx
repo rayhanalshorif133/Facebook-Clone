@@ -5,6 +5,7 @@ import { LuImagePlus } from "react-icons/lu";
 import { FaMobileScreen } from "react-icons/fa6";
 import Header from "./Header";
 import Body from "./Body";
+import Footer from "./Footer";
 
 
 
@@ -20,6 +21,7 @@ export default function Index({ show, handleModal }) {
                     <div className="relative transform overflow-hidden rounded-lg bg-[#242526] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                         <Header handleModal={handleModal}/>
                         <Body/>
+                        <Footer/>
                     </div>
                 </div>
             </div>
