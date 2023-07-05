@@ -1,16 +1,35 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { useSession } from 'next-auth/react';
-import { RxCross2 } from "react-icons/rx";
 import { BiSolidLockAlt, BiSolidDownArrow, BiSmile, BiImageAdd } from 'react-icons/bi';
-import { LuImagePlus } from "react-icons/lu";
 import { FaMobileScreen } from "react-icons/fa6";
+import ImagePlaceHolder from './_partials/ImagePlaceHolder';
+import HasImage from './_partials/HasImage';
 
 export default function Body() {
 
     const { data: session } = useSession();
+    const [uploadImage, setUploadImage] = useState(null);
+    const imageInputRef = useRef(null);
+
+    const handleImageInputToggle = () => {
+        console.log("handleImageInput");
+    }
 
     const handleImageInput = () => {
-        console.log("handleImageInput");
+        imageInputRef.current.click();
+    }
+
+    const handleUploadInputImage = (e) => {
+        const reader = new FileReader();
+
+
+        if (e.target.files[0]) {
+            reader.readAsDataURL(e.target.files[0]);
+            setUploadImage(e.target.files[0]);
+        }
+        reader.onload = (readerEvent) => {
+            setUploadImage(readerEvent.target.result);
+        }
     }
 
     return (
@@ -42,22 +61,15 @@ export default function Body() {
             {/* image input */}
             <div className='py-3 pr-2'>
                 <div className='h-auto w-full border-1 border-gray-500 rounded-xl'>
-                    <div className='h-56 w-[97%] bg-[#323436] hover:bg-[#47494A] cursor-pointer p-4 justify-center items-center flex mx-auto rounded-xl mt-2 relative'>
-                        <div className="absolute top-2 right-2 h-8 w-8 flex items-center cursor-pointer bg-[#414141] hover:bg-[#4e4f50] rounded-full text-gray-500" onClick={handleImageInput}>
-                            <RxCross2 className="h-6 w-6 mx-auto items-center text-gray-300" />
-                        </div>
-                        <div className="">
-                            <div className='h-10 w-10 bg-[#47494A] rounded-full items-center justify-center flex mx-auto'>
-                                <LuImagePlus className='h-6 w-6 items-center justify-center m-auto flex' />
-                            </div>
-                            <div className='items-center justify-center flex mx-auto'>
-                                <h2>Add Photos/Videos</h2>
-                            </div>
-                            <div className='items-center justify-center flex mx-auto'>
-                                <p className="text-sm text-[#9EA1A3]">or drag and drop</p>
-                            </div>
-                        </div>
-                    </div>
+                    {
+                        uploadImage ? <HasImage image={uploadImage}/> :
+                            <ImagePlaceHolder
+                                handleImageInput={handleImageInput}
+                                handleImageInputToggle={handleImageInputToggle}
+                                handleUploadInputImage={handleUploadInputImage}
+                                imageInputRef={imageInputRef}
+                            />
+                    }
                     <div className='h-16 w-[97%] bg-[#323436] p-4 rounded-xl mt-2 ml-2 mb-2 flex justify-between'>
                         <div className="flex">
                             <div className="h-10 w-10 flex items-center cursor-pointer bg-[#414141] hover:bg-[#4e4f50] rounded-full text-gray-500">
