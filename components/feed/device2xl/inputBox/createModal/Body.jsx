@@ -5,10 +5,10 @@ import { FaMobileScreen } from "react-icons/fa6";
 import ImagePlaceHolder from './_partials/ImagePlaceHolder';
 import HasImage from './_partials/HasImage';
 
-export default function Body() {
+export default function Body(props) {
 
     const { data: session } = useSession();
-    const [uploadImage, setUploadImage] = useState(null);
+    const {uploadImage, setUploadImage,register} = props;
     const imageInputRef = useRef(null);
 
     const handleImageInputToggle = () => {
@@ -32,6 +32,8 @@ export default function Body() {
         }
     }
 
+    
+
     return (
         <div className="pl-4 pr-1">
             <div className="flex items-start py-3">
@@ -50,38 +52,40 @@ export default function Body() {
                 </div>
             </div>
             {/* Input */}
-            <div className='flex pb-3'>
-                <div className='w-full'>
-                    <textarea className='text-[#E1E3E8] p-2 w-full resize-none bg-transparent focus:outline-none outline-none' placeholder="What's on your mind?"></textarea>
+            <div className=''>
+                <div className='flex pb-3'>
+                    <div className='w-full'>
+                        <textarea {...register("post")} className='text-[#E1E3E8] p-2 w-full resize-none bg-transparent focus:outline-none outline-none' placeholder="What's on your mind?"></textarea>
+                    </div>
+                    <div className='cursor-pointer'>
+                        <BiSmile className='h-7 w-7 mx-2 mt-1 text-sm text-gray-400' />
+                    </div>
                 </div>
-                <div className='cursor-pointer'>
-                    <BiSmile className='h-7 w-7 mx-2 mt-1 text-sm text-gray-400' />
-                </div>
-            </div>
-            {/* image input */}
-            <div className='py-3 pr-2'>
-                <div className='h-auto w-full border-1 border-gray-500 rounded-xl'>
-                    {
-                        uploadImage ? <HasImage image={uploadImage}/> :
-                            <ImagePlaceHolder
-                                handleImageInput={handleImageInput}
-                                handleImageInputToggle={handleImageInputToggle}
-                                handleUploadInputImage={handleUploadInputImage}
-                                imageInputRef={imageInputRef}
-                            />
-                    }
-                    <div className='h-16 w-[97%] bg-[#323436] p-4 rounded-xl mt-2 ml-2 mb-2 flex justify-between'>
-                        <div className="flex">
-                            <div className="h-10 w-10 flex items-center cursor-pointer bg-[#414141] hover:bg-[#4e4f50] rounded-full text-gray-500">
-                                <FaMobileScreen className='h-6 w-6 items-center justify-center m-auto flex text-white' />
+                {/* image input */}
+                <div className='py-3 pr-2'>
+                    <div className='h-auto w-full border-1 border-gray-500 rounded-xl'>
+                        {
+                            uploadImage ? <HasImage image={uploadImage} /> :
+                                <ImagePlaceHolder
+                                    handleImageInput={handleImageInput}
+                                    handleImageInputToggle={handleImageInputToggle}
+                                    handleUploadInputImage={handleUploadInputImage}
+                                    imageInputRef={imageInputRef}
+                                />
+                        }
+                        <div className='h-16 w-[97%] bg-[#323436] p-4 rounded-xl mt-2 ml-2 mb-2 flex justify-between'>
+                            <div className="flex">
+                                <div className="h-10 w-10 flex items-center cursor-pointer bg-[#414141] hover:bg-[#4e4f50] rounded-full text-gray-500">
+                                    <FaMobileScreen className='h-6 w-6 items-center justify-center m-auto flex text-white' />
+                                </div>
+                                <div className="items-center justify-center m-auto">
+                                    <h2 className="text-sm m-2 ml-3">Add photos from your mobile device.</h2>
+                                </div>
                             </div>
-                            <div className="items-center justify-center m-auto">
-                                <h2 className="text-sm m-2 ml-3">Add photos from your mobile device.</h2>
-                            </div>
-                        </div>
-                        <div className="">
-                            <div className="h-5 w-7 px-7 py-[1.1rem] cursor-pointer rounded-lg  bg-[#414141] flex items-center justify-center m-auto">
-                                <h2 className="text-sm font-semibold">Add</h2>
+                            <div className="">
+                                <div className="h-5 w-7 px-7 py-[1.1rem] cursor-pointer rounded-lg  bg-[#414141] flex items-center justify-center m-auto">
+                                    <h2 className="text-sm font-semibold">Add</h2>
+                                </div>
                             </div>
                         </div>
                     </div>

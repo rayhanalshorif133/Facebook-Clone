@@ -7,7 +7,7 @@ import { CgSmileMouthOpen } from 'react-icons/cg';
 import { BsThreeDots } from "react-icons/bs";
 import { HiGif } from "react-icons/hi2";
 
-export default function Footer() {
+export default function Footer({ handleSubmit,createNewPost }) {
     return (
         <div className="pl-4 pr-3 py-3">
             <div className='h-auto w-full border-1 border-gray-500 rounded-xl'>
@@ -27,9 +27,11 @@ export default function Footer() {
 
             </div>
 
-            <div className='mt-3 w-full'>
-                <button className='bg-blue-500 text-white font-semibold rounded-md px-4 py-2 mt-3 w-full'>Post</button>
-            </div>
+            <form onSubmit={handleSubmit(createNewPost)}>
+                <div className='mt-3 w-full'>
+                    <button type='submit' className='bg-blue-500 text-white font-semibold rounded-md px-4 py-2 mt-3 w-full'>Post</button>
+                </div>
+            </form>
         </div>
     )
 }

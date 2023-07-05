@@ -1,15 +1,26 @@
-import React from 'react'
-import { RxCross2 } from "react-icons/rx";
-import { BiSolidLockAlt, BiSolidDownArrow, BiSmile, BiImageAdd } from 'react-icons/bi';
-import { LuImagePlus } from "react-icons/lu";
-import { FaMobileScreen } from "react-icons/fa6";
+import React, { useState } from 'react'
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
+import { useForm } from "react-hook-form"
 
 
 
 export default function Index({ show, handleModal }) {
+
+    const [uploadImage, setUploadImage] = useState(null);
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm()
+    
+      const createNewPost = (data) => {
+        console.log(data)
+        console.log(uploadImage);
+      }
+    
    
   return (
     <>
@@ -20,8 +31,8 @@ export default function Index({ show, handleModal }) {
                 <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                     <div className="relative transform overflow-hidden rounded-lg bg-[#242526] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                         <Header handleModal={handleModal}/>
-                        <Body/>
-                        <Footer/>
+                        <Body uploadImage={uploadImage} setUploadImage={setUploadImage} register={register}/>
+                        <Footer handleSubmit={handleSubmit} createNewPost={createNewPost}/>
                     </div>
                 </div>
             </div>
