@@ -14,7 +14,7 @@ export default async function create(req, res) {
         Post.create({
             description: post_des,
             image: post_image,
-            user: getUser[0]._id
+            author: getUser[0]._id
         }).then((post) => {
             responseWithSuccess(res, post);
         }).catch((err) => {

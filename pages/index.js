@@ -35,9 +35,10 @@ export default function Home({session}) {
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  console.log("ok");
   return {
     props: {
       session,
-    }
+    }// In seconds after a successful request to validate the request
   }
 }

@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
 const postSchema = new mongoose.Schema({
     description: { type: String },
     image: { type: String },
-    user: {type: mongoose.Types.ObjectId, ref: "User"}
+    author: { type: Schema.Types.ObjectId, ref: 'User' },
 }, {
     timestamps: true
 });

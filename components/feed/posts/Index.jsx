@@ -1,16 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Post from './Post';
+import axios from 'axios';
 
 export default function Index() {
 
     const countOfPost = 20;
+    const [posts, setPosts] = useState([]);
+
+
+    useEffect(() => {
+        axios.get('/api/post/get').then((res) => {
+            setPosts(res.data.data);
+        })
+    }, []);
+
+    useEffect(() => {
+
+        const interval= 5000;
+        
+        setInterval(() => {
+            axios.get('/api/post/get').then((res) => {
+                setPosts(res.data.data);
+            })
+        }, interval);
+
+    }, []);
 
     return (
         <div className=''>
             {
-                 Array(countOfPost).fill().map((_, i) => (
-                    <Post key={i} number={i +1} />
-                ))
+                posts.length > 0 && posts.map((item) =>
+                    <Post key={item._id} post={item} />
+                )
             }
         </div>
     )

@@ -5,17 +5,17 @@ import Body from './Body';
 import Footer from './Footer';
 
 
-export default function Post(props) {
+export default function Post({post}) {
 
-    const {number} = props;
 
-    const { data: session } = useSession();
 
-    const { image, name } = session?.user;
+    const { image, name } = post.author;
+
+
     return (
         <div className='bg-[#242526] h-auto w-full rounded-xl mt-2'>
             <Header image={image} name={name} />
-            <Body number={number}/> 
+            <Body post={post}/> 
             <Footer/>
         </div>
     )

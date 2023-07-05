@@ -3,10 +3,14 @@ import responseWithSuccess from "@/libs/res/responseWithSuccess";
 import Post from "@/models/Post";
 
 export default async function get(req, res) {
-    
-    Post.find().populate('user').then((posts) => {
+
+
+    // post with user details
+    const posts = await Post.find({}).populate('author')
+        .sort({ createdAt: -1 });
+    if (posts) {
         responseWithSuccess(res, posts);
-    }).catch((err) => {
-        responseWithError(res, err);
-    })
+    } else {
+        responseWithError(res, [], "Posts not found");
+    }
 }
