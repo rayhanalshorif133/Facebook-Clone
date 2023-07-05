@@ -3,12 +3,15 @@ import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
 import { useForm } from "react-hook-form"
+import axios from 'axios';
+import { useSession } from 'next-auth/react';
 
 
 
 export default function Index({ show, handleModal }) {
 
     const [uploadImage, setUploadImage] = useState(null);
+    const { data: session } = useSession();
 
     const {
         register,
@@ -19,6 +22,14 @@ export default function Index({ show, handleModal }) {
       const createNewPost = (data) => {
         console.log(data)
         console.log(uploadImage);
+        axios.post('/api/post/create', {
+            user: session?.user,
+            post_des: data.post_description,
+            post_image: uploadImage
+        }).then((res) => {
+            console.log(res.data);
+            handleModal();
+        })
       }
     
    

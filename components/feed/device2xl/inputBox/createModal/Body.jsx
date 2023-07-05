@@ -55,7 +55,7 @@ export default function Body(props) {
             <div className=''>
                 <div className='flex pb-3'>
                     <div className='w-full'>
-                        <textarea {...register("post")} className='text-[#E1E3E8] p-2 w-full resize-none bg-transparent focus:outline-none outline-none' placeholder="What's on your mind?"></textarea>
+                        <textarea {...register("post_description")} className='text-[#E1E3E8] p-2 w-full resize-none bg-transparent focus:outline-none outline-none' placeholder="What's on your mind?"></textarea>
                     </div>
                     <div className='cursor-pointer'>
                         <BiSmile className='h-7 w-7 mx-2 mt-1 text-sm text-gray-400' />
