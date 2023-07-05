@@ -17,7 +17,10 @@ export default async function userCreateOrUpdate(req, res) {
     if (data) {
         const doc = await User.findOneAndUpdate(
             { email: email },
-            { activeStatus: true }
+            { activeStatus: true,
+                image: image,
+                name: name
+            }
         );
         doc && console.log('User has been modified');
     } else {

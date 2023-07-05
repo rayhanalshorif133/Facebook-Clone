@@ -16,7 +16,7 @@ export default function Index() {
 
     useEffect(() => {
 
-        const interval= 5000;
+        const interval= 3000;
         
         setInterval(() => {
             axios.get('/api/post/get').then((res) => {

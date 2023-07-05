@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
@@ -20,18 +20,22 @@ export default function Index({ show, handleModal }) {
       } = useForm()
     
       const createNewPost = (data) => {
-        console.log(data)
-        console.log(uploadImage);
         axios.post('/api/post/create', {
             user: session?.user,
             post_des: data.post_description,
             post_image: uploadImage
         }).then((res) => {
-            console.log(res.data);
-            handleModal();
+            setTimeout(() => {
+                handleModal();
+            },3000);
         })
       }
     
+
+      useEffect(() => {
+        setUploadImage(null)
+      },[show])
+
    
   return (
     <>

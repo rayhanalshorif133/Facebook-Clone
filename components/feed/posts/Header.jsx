@@ -5,7 +5,10 @@ import { BiWorld } from 'react-icons/bi';
 import { BsThreeDots } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 
-export default function Header({image,name}) {
+export default function Header({image,name,cancelPost}) {
+
+
+   
 
 
     return (
@@ -30,7 +33,7 @@ export default function Header({image,name}) {
                 <div className={`h-8 w-8 flex items-center cursor-pointer hover:bg-gray-hover md:hover:bg-gray-hover rounded-full text-gray-500`}>
                     <BsThreeDots className="h-6 w-6 mx-auto items-center text-gray-300" />
                 </div>
-                <div className={`h-8 w-8 flex items-center cursor-pointer hover:bg-gray-hover md:hover:bg-gray-hover rounded-full text-gray-500`}>
+                <div onClick={cancelPost} className={`h-8 w-8 flex items-center cursor-pointer hover:bg-gray-hover md:hover:bg-gray-hover rounded-full text-gray-500`}>
                     <RxCross2 className="h-6 w-6 mx-auto items-center text-gray-300" />
                 </div>
             </div>
