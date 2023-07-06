@@ -21,6 +21,8 @@ export default function ShowLikesAndComments({ number }) {
             .then(res => {
                 const data = res.data.data;
                 setLikes(data?.length);
+
+                setEmojis([]);
                 data.map((item, index) => {
                     setEmojis(prev => [...prev, item.react]);
                 });
