@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { createContext, useEffect } from 'react'
 import Header from './Header';
-import { useSession } from 'next-auth/react';
 import Body from './Body';
 import Footer from './Footer';
 import CancelPost from './cancelPost/Index';
 
 
+export const emojiContext = createContext({});
 
 export default function Post({ post }) {
 
@@ -13,6 +13,7 @@ export default function Post({ post }) {
 
     const { image, name } = post.author;
     const [cancelPost, setCancelPost] = React.useState(false);
+    const [hoverOnEmoji, setHoverOnEmoji] = React.useState(false);
 
     const handleCancelPost = () => {
         setCancelPost(true);
@@ -22,17 +23,36 @@ export default function Post({ post }) {
     const [showEmoji, setShowEmoji] = React.useState(false);
 
     const handlePopupReactEmoji = (e) => {
-        setShowEmoji(!showEmoji);
+        setShowEmoji(true);
+        handleRemoveReactEmoji(true);
     }
 
+    const handleRemoveReactEmoji = (status) => {
+        setTimeout(() => {
+            setShowEmoji(status);
+        }, 2000);
+    }
+
+
+
+    const emojiContextValue = {
+        handlePopupReactEmoji,
+        handleRemoveReactEmoji,
+        showEmoji,
+        setShowEmoji,
+        hoverOnEmoji,
+        setHoverOnEmoji
+    };
 
     return (
         <>
             {cancelPost ? <CancelPost post={post} /> :
                 <div className='bg-[#242526] h-auto w-full rounded-xl mt-2'>
-                    <Header image={image} name={name} cancelPost={handleCancelPost} />
-                    <Body post={post} showEmoji={showEmoji}/>
-                    <Footer handlePopupReactEmoji={handlePopupReactEmoji}/>
+                    <emojiContext.Provider value={emojiContextValue} >
+                        <Header image={image} name={name} cancelPost={handleCancelPost} />
+                        <Body post={post} />
+                        <Footer />
+                    </emojiContext.Provider>
                 </div>
             }
         </>

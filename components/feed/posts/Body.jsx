@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ShowLikesAndComments from './_partials/ShowLikesAndComments'
-import ShowEmoji from './ShowEmoji';
+import ShowEmoji from './emoji/Index';
+import { emojiContext } from './Post';
 
-export default function Body({ post,showEmoji }) {
+export default function Body({ post }) {
 
     const { image, description } = post;
+    const {showEmoji} = useContext(emojiContext);
 
     return (
         <div className='mx-2 justify-start pb-2 relative'>
