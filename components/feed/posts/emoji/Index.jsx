@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { emojiContext } from '../Post';
+import SingleItem from './SingleItem';
 
 export default function Index() {
 
@@ -18,13 +19,13 @@ export default function Index() {
   return (
     <div className='absolute bg-gray-800 rounded-2xl w-[23.3rem] h-10 text-white'>
       <div className='flex justify-around items-center' onMouseEnter={handleHoverEmoji} onMouseLeave={handleOnLeave}>
-        <img className='w-10 h-10 cursor-pointer hover:scale-110 transition-all ease-in-out' src='assets/emoji/fb-emoji/like.png' alt='like' />
-        <img className='w-10 h-10 cursor-pointer hover:scale-110 transition-all ease-in-out' src='assets/emoji/fb-emoji/love.png' alt='like' />
-        <img className='w-10 h-10 cursor-pointer hover:scale-110 transition-all ease-in-out' src='assets/emoji/fb-emoji/care.png' alt='like' />
-        <img className='w-10 h-10 cursor-pointer hover:scale-110 transition-all ease-in-out' src='assets/emoji/fb-emoji/haha.png' alt='like' />
-        <img className='w-10 h-10 cursor-pointer hover:scale-110 transition-all ease-in-out' src='assets/emoji/fb-emoji/wow.png' alt='like' />
-        <img className='w-10 h-10 cursor-pointer hover:scale-110 transition-all ease-in-out' src='assets/emoji/fb-emoji/sad.png' alt='like' />
-        <img className='w-10 h-10 cursor-pointer hover:scale-110 transition-all ease-in-out' src='assets/emoji/fb-emoji/angry.png' alt='like' />
+        <SingleItem title='like' image='assets/emoji/fb-emoji/like.png' />
+        <SingleItem title='love' image='assets/emoji/fb-emoji/love.png' />
+        <SingleItem title='care' image='assets/emoji/fb-emoji/care.png' />
+        <SingleItem title='haha' image='assets/emoji/fb-emoji/haha.png' />
+        <SingleItem title='wow' image='assets/emoji/fb-emoji/wow.png' />
+        <SingleItem title='sad' image='assets/emoji/fb-emoji/sad.png' />
+        <SingleItem title='angry' image='assets/emoji/fb-emoji/angry.png' />
       </div>
     </div>
   )
