@@ -32,6 +32,6 @@ export const PostReactionEmojis = [
     {
         id: 7,
         title: 'angry',
-        image: '/assets/emoji/gif/face-love.gif',
+        image: '/assets/emoji/gif/angry.gif',
     },
 ]

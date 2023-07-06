@@ -1,77 +1,51 @@
-import { storage } from "@/database/firebaseDb";
-import { postRef, testRef } from "@/database/reference";
-import { addDoc, updateDoc } from 'firebase/firestore/lite';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL, uploadBytes } from "firebase/storage";
+import responseWithSuccess from "@/libs/res/responseWithSuccess";
+import responseWithError from "@/libs/res/responseWithError";
+import Post from "@/models/Post";
+import PostInfo from "@/models/PostInfo";
+import User from "@/models/User";
 
-
-const metadata = {
-    contentType: 'image/jpeg'
-};
 
 const postController = {};
 
-postController.create = async (data, getFile = null) => {
-
-    // base64 encode
-    const result = await addDoc(postRef, data);
-    if (result && getFile !== null) {
-        await imageUploadBytes(result, getFile);
-    }
+postController.getPostReactInfo = async (req, res) => {
+    const { postId } = req.body;
+    const postInfo = await PostInfo.find(
+        { post: postId, react: { $ne: null } }       
+        );
+    responseWithSuccess(res, postInfo);
 };
 
-const imageUploadBytes = async (result, getFile) => {
-    const storage = getStorage();
-    const imageName = result.id + '.jpg';
-
-    const storageRef = ref(storage, 'posts/' + imageName);
- 
-
-    // Upload the file and metadata
-    const uploadTask = await uploadBytes(storageRef, getFile, metadata);
-    if (uploadTask) {
-        getDownloadURL(storageRef)
-            .then((url) => {
-                updateDoc(result, {
-                    postImage: url,
-                });
-            })
-    }
-};
-
-
-// Just Practice
-
-async function uploadBytesResumableData(result, uploadFile) {
-
-
-    const storage = getStorage();
-    const metadata = {
-        contentType: 'image/jpeg'
-    };
-
-    const imageName = result.id + '.jpg';
-
-    const storageRef = ref(storage, 'posts/' + imageName);
-    const uploadTask = uploadBytesResumable(storageRef, uploadFile, metadata);
-
-    uploadTask.on('state_changed',
-        (snapshot) => {
-            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log(progress + '% done');
-        },
-        () => {
-            // Upload completed successfully, now we can get the download URL
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                console.log('File available at', downloadURL);
-                updateDoc(result, {
-                    postImage: downloadURL,
+postController.setPostReaction = async (req, res) => {
+    const { reactTitle, postId, userEmail } = req.body;
+    User.findOne({ email: userEmail }).then((user) => {
+        if (user) {
+            Post.findOne({ _id: postId }).then((post) => {
+                PostInfo.findOne({ author: user._id, post: post._id }).then((postInfo) => {
+                    if (postInfo) {
+                        postInfo.react = reactTitle;
+                        postInfo.save().then(() => {
+                            responseWithSuccess(res, postInfo);
+                        }).catch((err) => {
+                            responseWithError(res, err);
+                        });
+                    } else {
+                            PostInfo.create({
+                                react: reactTitle,
+                                post: post._id,
+                                author: user._id
+                            }).then((postInfo) => {
+                                responseWithSuccess(res, postInfo);
+                            }).catch((err) => {
+                                responseWithError(res, err);
+                            });
+                    }
                 });
             });
+        }else{
+            responseWithError(res, 'User not found');
         }
-    );
-
-}
+    });
+};
 
 
 export default postController;

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, { useRef,useState } from 'react'
 import { useSession } from "next-auth/react"
 import { FaVideo, FaCamera, FaSmile } from "react-icons/fa";
-import postController from '@/controllers/PostController';
+import postController from '@/controllers/PostControllerBack';
 
 
 

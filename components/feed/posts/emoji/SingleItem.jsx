@@ -3,14 +3,14 @@ import React from 'react'
 import { emojiContext } from '../Post';
 import { useSession } from 'next-auth/react';
 
+
 export default function SingleItem({ index,title, image }) {
 
 
 
     const [tooltip, setTooltip] = React.useState(false);
-    const {post} = React.useContext(emojiContext);
+    const {post,setReactInstantInfo,setShowEmoji} = React.useContext(emojiContext);
     const { data: session } = useSession();
-
 
     const handleTooltip = (e) => {
         setTooltip(true);
@@ -21,14 +21,18 @@ export default function SingleItem({ index,title, image }) {
     }
 
     const handlePostReactionCreate = () => {
-        axios.post('api/post/set-reaction-in-post', {
+        axios.post('api/post/reactions', {
             reactTitle: title,
             postId : post?._id,
-            userEmail : session?.user?.email
+            userEmail : session?.user?.email,
+            action: 'setPostReaction'
         }).then((res) => {
-            console.log(res.data);
+            setReactInstantInfo(res.data.data);
+            setShowEmoji(false);
+            return false;
         });
     }
+
 
     return (
         <div onMouseEnter={handleTooltip} onMouseLeave={handleTooltipLeave}>

@@ -5,6 +5,7 @@ import Footer from './Footer';
 import CancelPost from './cancelPost/Index';
 
 
+
 export const emojiContext = createContext({});
 
 export default function Post({ post }) {
@@ -14,6 +15,7 @@ export default function Post({ post }) {
     const { image, name } = post.author;
     const [cancelPost, setCancelPost] = React.useState(false);
     const [hoverOnEmoji, setHoverOnEmoji] = React.useState(false);
+    const [reactInstantInfo, setReactInstantInfo] = React.useState(null);
 
     const handleCancelPost = () => {
         setCancelPost(true);
@@ -34,15 +36,20 @@ export default function Post({ post }) {
     }
 
 
+  
+
+
 
     const emojiContextValue = {
         handlePopupReactEmoji,
         handleRemoveReactEmoji,
-        showEmoji,
         setShowEmoji,
-        hoverOnEmoji,
+        showEmoji,
         setHoverOnEmoji,
-        post
+        hoverOnEmoji,
+        post,
+        setReactInstantInfo,
+        reactInstantInfo,
     };
 
     return (

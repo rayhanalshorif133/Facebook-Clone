@@ -8,9 +8,8 @@ export const tooltipContext = createContext({});
 export default function Index() {
 
     const { setShowEmoji, handleRemoveReactEmoji } = useContext(emojiContext);
-    const [tooltip, setTooltip] = React.useState('');
     const [emoji, setEmoji] = React.useState([]);
-    
+
 
     const handleHoverEmoji = () => {
         setShowEmoji(true);
@@ -21,9 +20,7 @@ export default function Index() {
         handleRemoveReactEmoji(false);
     }
 
-    const handleTooltip = (e) => {
-        setTooltip(e.target.alt);
-    }
+
 
     useEffect(() => {
         axios.get('api/post/fetch-reaction-emojis')
@@ -37,15 +34,13 @@ export default function Index() {
         <div className=''>
             <div className='absolute bg-transparent  w-[23.3rem] h-20 text-white bottom-0 mt-10'>
                 <div className='flex justify-around items-center' onMouseEnter={handleHoverEmoji} onMouseLeave={handleOnLeave}>
-                    <tooltipContext.Provider value={{handleTooltip}}>
-                        {
-                            emoji.length > 0 && emoji.map((item, index) => {
-                                return (
-                                    <SingleItem key={index} index={index} title={item.title} image={item.image} />
-                                )
-                            })
-                        }
-                    </tooltipContext.Provider>
+                    {
+                        emoji.length > 0 && emoji.map((item, index) => {
+                            return (
+                                <SingleItem key={index} index={index} title={item.title} image={item.image} />
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>

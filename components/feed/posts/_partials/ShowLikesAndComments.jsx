@@ -1,37 +1,55 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
+import { emojiContext } from '../Post';
 
-export default function ShowLikesAndComments({number}) {
+export default function ShowLikesAndComments({ number }) {
 
     // make a random number
-    
-    const emojis = ['angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
-    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
-    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
-    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
-    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
-    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking',
-    'angry','confused','cool','happy','laughing','like','love','lovely','party','sad','smile','thinking'
-];
+
+    const { post,reactInstantInfo } = React.useContext(emojiContext);
+    const [likes, setLikes] = React.useState(0);
+    const [emojis, setEmojis] = React.useState([]);
 
     // make a random emoji
-    const emoji_1 = emojis[number + 1];
-    const emoji_2 = emojis[number + 2];
-    const emoji_3 = emojis[number + 3];
-    const likes = number * 57;
-    const comments = number * 43;
+    const comments = number * 2;
+
+    useEffect(() => {
+        axios.post('api/post/reactions', {
+            action: 'getPostReactInfo',
+            postId: post?._id
+        })
+            .then(res => {
+                const data = res.data.data;
+                setLikes(data?.length);
+                data.map((item, index) => {
+                    setEmojis(prev => [...prev, item.react]);
+                });
+                // remove duplicate
+                setEmojis(prev => [...new Set(prev)]);
+            });
+    }, [reactInstantInfo]);
 
 
     return (
         <div className='flex justify-between border-b-1 border-gray-600'>
             <div className='flex'>
-                <div className='flex m-2'>
-                    <img className='h-5 w-5' src={`/assets/emoji/${emoji_1}.png`} alt='' />
-                    <img className='h-5 w-5' src={`/assets/emoji/${emoji_2}.png`} alt='' />
-                    <img className='h-5 w-5' src={`/assets/emoji/${emoji_3}.png`} alt='' />
-                </div>
-                <div className='ml-[1px] mt-[6px] text-gray-300'>
-                    {likes}
-                </div>
+                {
+                    likes > 0 &&
+                    <>
+                        <div className='flex m-2'>
+                            {
+                                emojis.length > 0 && emojis.map((item, index) => {
+                                    return (
+                                        index < 3 && <img className='h-5 w-5' src={`/assets/emoji/${item}.png`} alt='' />
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className='ml-[1px] mt-[6px] text-gray-300'>
+                            {likes}
+                        </div>
+                    </>
+                }
             </div>
             <div className='m-2 text-gray-300'>
                 <span className="mr-1">{comments}</span>comments
