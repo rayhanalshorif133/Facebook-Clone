@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ShowEmoji() {
   return (
-    <div className='absolute bg-black rounded-2xl w-[23.4rem] h-10 text-white'>
+    <div className='absolute bg-gray-800 rounded-2xl w-[23.3rem] h-10 text-white'>
         <div className='flex justify-around items-center'>
             <img className='w-10 h-10' src='assets/emoji/like.png' alt='like' />
             <img className='w-10 h-10' src='assets/emoji/love.png' alt='like' />
