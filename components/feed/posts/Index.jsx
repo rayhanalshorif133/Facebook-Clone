@@ -4,9 +4,7 @@ import axios from 'axios';
 
 export default function Index() {
 
-    const countOfPost = 20;
     const [posts, setPosts] = useState([]);
-
 
     useEffect(() => {
         axios.get('/api/post/get').then((res) => {
@@ -17,7 +15,6 @@ export default function Index() {
     useEffect(() => {
 
         const interval= 3000;
-        
         setInterval(() => {
             axios.get('/api/post/get').then((res) => {
                 setPosts(res.data.data);

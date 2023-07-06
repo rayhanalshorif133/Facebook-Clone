@@ -41,7 +41,8 @@ export default function Post({ post }) {
         showEmoji,
         setShowEmoji,
         hoverOnEmoji,
-        setHoverOnEmoji
+        setHoverOnEmoji,
+        post
     };
 
     return (

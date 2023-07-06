@@ -7,10 +7,6 @@ import { RxCross2 } from "react-icons/rx";
 
 export default function Header({image,name,cancelPost}) {
 
-
-   
-
-
     return (
         <div className='flex justify-between m-2 mb-4'>
             <div className='flex justify-center items-center mt-2'>
