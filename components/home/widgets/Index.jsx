@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { FaVideo, FaSistrix, FaEllipsisH } from "react-icons/fa";
-import Sponsored from './Sponsored/Index';
-import PageAndProfile from './PageAndProfile/Index';
-import Birthdays from './Birthdays/Index';
-import Contacts from './Contacts/Index';
+import Sponsored from './sponsored/Index';
+import PageAndProfile from './pageAndProfile/Index';
+import Birthdays from './birthdays/Index';
+import Contacts from './contacts/Index';
 import axios from 'axios';
 import { useSession } from 'next-auth/react'
 export default function Index() {
