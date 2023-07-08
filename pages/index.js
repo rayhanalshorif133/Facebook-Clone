@@ -1,5 +1,5 @@
 import Header from '@/components/Header/Index'
-import Login from '@/components/Login/index'
+import Login from '@/components/Login/Index'
 import Feed from '@/components/feed/Index'
 import Widgets from '@/components/home/widgets/Index'
 import { getSession, useSession } from 'next-auth/react'
