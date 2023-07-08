@@ -10,7 +10,7 @@ import axios from 'axios'
 
 export default function Home({session}) {
 
-  if (!session) return <LoginPage />;
+  if (!session) return (<>Login page</>);
 
   if(session){
     axios.post('/api/user/modify',session);
