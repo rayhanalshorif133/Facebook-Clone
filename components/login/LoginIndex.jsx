@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Footer from './Footer'
 import Form from './Form'
 
-export default function Index() {
+export default function LoginIndex() {
   return (
     <div className='h-screen bg-gray-100 overflow-scroll'>
       <Head>

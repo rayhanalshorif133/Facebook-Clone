@@ -1,5 +1,5 @@
 import Header from '@/components/Header/Index'
-import Login from '@/components/Login/Index'
+import LoginPage from '@/components/Login/LoginIndex'
 import Feed from '@/components/feed/Index'
 import Widgets from '@/components/home/widgets/Index'
 import { getSession, useSession } from 'next-auth/react'
@@ -10,7 +10,7 @@ import axios from 'axios'
 
 export default function Home({session}) {
 
-  if (!session) return <Login />;
+  if (!session) return <LoginPage />;
 
   if(session){
     axios.post('/api/user/modify',session);
