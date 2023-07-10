@@ -3,12 +3,9 @@ import { FaMobileScreenButton } from "react-icons/fa6";
 import InputFields from './InputFields';
 import { signIn } from 'next-auth/react';
 import Footer from './Footer';
-export default function MobileIndex() {
+export default function MobileIndex({handleGoogleSignIn}) {
 
-  const handleGoogleSignIn = (e) => {
-    const URL = 'http://localhost:3000';
-    signIn('google', { callbackUrl: URL });
-  };
+
 
   return (
     <div className='bg-[#FFFFFF] h-screen'>

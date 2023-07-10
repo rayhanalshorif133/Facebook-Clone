@@ -3,8 +3,15 @@ import React from 'react'
 import Form from './Form'
 import Footer from './Footer'
 import MobileIndex from './mobile/MobileIndex'
+import { signIn } from 'next-auth/react'
 
 export default function Index() {
+
+
+  const handleGoogleSignIn = (e) => {
+    signIn('google');
+  };
+
     return (
         <div className='h-screen bg-gray-100 overflow-scroll'>
           <Head>
@@ -19,14 +26,14 @@ export default function Index() {
                   Facebook helps you connect and share <br /> with the people in your life.</p>
               </div>
               <div className="xl:mt-24 2xl:mt-24">
-                <Form />
+                <Form handleGoogleSignIn={handleGoogleSignIn}/>
               </div>
             </div>
             <div className='2xl:mt-40 bg-white hidden 2xl:flex'>
               <Footer />
             </div>
             <div className="2xl:hidden">
-                <MobileIndex />
+                <MobileIndex handleGoogleSignIn={handleGoogleSignIn}/>
             </div>
           </main>
         </div>

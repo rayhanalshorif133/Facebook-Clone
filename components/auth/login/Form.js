@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { signIn } from "next-auth/react";
 
-export default function Form() {
+export default function Form({handleGoogleSignIn}) {
 
   const [userName, setUserName] = useState('rayhanalshorif@gmail.com');
 
@@ -9,10 +8,6 @@ export default function Form() {
     setUserName(e.target.value);
   }
 
-  const handleGoogleSignIn = (e) => {
-    const URL = 'https://facebook-clone-v2-steel.vercel.app';
-    signIn('google', { callbackUrl: URL });
-  };
 
   return (
     <>
