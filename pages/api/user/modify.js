@@ -1,6 +1,6 @@
 import responseWithSuccess from "@/libs/res/responseWithSuccess";
 import User from "@/models/User";
-import DBConnection from "@/utils/DBConnection";
+import DBConnection from "@/pages/database/connection";
 
 // /api/user/modify
 export default async function userCreateOrUpdate(req, res) {

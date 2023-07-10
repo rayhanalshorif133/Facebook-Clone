@@ -1,9 +1,14 @@
 import responseWithError from "@/libs/res/responseWithError";
 import responseWithSuccess from "@/libs/res/responseWithSuccess";
 import User from "@/models/User";
+import DBConnection from "@/pages/database/connection";
 
 
 export default async function logout(req, res) {
+
+
+    await DBConnection();
+
     const {email} = req.body?.user;
 
     const updateUser = await User.findOneAndUpdate(

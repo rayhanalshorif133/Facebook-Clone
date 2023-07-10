@@ -15,7 +15,7 @@ export default function Index() {
       <div className='hidden 2xl:inline-flex text-white mt-6 justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center px-6 5xl:pr-[8.5rem] 3xl:w-full'>
         <InputBox />
       </div>
-      <div className='hidden 2xl:inline-flex text-white mt-6 justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center px-6 5xl:pr-[8.5rem] 3xl:w-full'>
+      <div className='text-white 2xl:mt-6 -mt-[6px] justify-center 2xl:mx-auto 2xl:justify-items-center px-0 xl:px-0 2xl:px-6 5xl:pr-[8.5rem] 3xl:w-full'>
         <Posts />
       </div>
     </div>
