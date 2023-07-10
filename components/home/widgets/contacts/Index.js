@@ -14,9 +14,10 @@ export default function Index() {
   const [contacts, setContacts] = useState([]);
   const { data: session } = useSession();
 
-  const email = session?.user?.email;
+  const email = session.user.email;
 
   useEffect(() => {
+    console.log(email)
     axios.post('/api/user/fetch', {
       type: 'active',
       email
