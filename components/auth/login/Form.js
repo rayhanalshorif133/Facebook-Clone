@@ -10,7 +10,8 @@ export default function Form() {
   }
 
   const handleGoogleSignIn = (e) => {
-    signIn('google', { callbackUrl: 'http://localhost:3000' });
+    const URL = prosess.env.NEXTAUTH_URL || 'http://localhost:3000';
+    signIn('google', { callbackUrl: URL });
   };
 
   return (
