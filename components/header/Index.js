@@ -26,9 +26,9 @@ export default function Index() {
     setIsFocusSearch(true);
   }
 
-  const  handleLogout = async () => {
+  const handleLogout = async () => {
     signOut();
-   
+
   }
 
   return (
@@ -53,6 +53,40 @@ export default function Index() {
             <SmHeaderIcons Icon={FaBell} />
             <SmHeaderIcons Icon={FaStore} />
           </div>
+        </div>
+      </div>
+      {/* For Large Device */}
+      <div className="bg-[#242526] h-14 shadow-sm border-b border-gray-700 hidden 2xl:inline-flex w-full overflow-hidden">
+        <div className="text-white flex 2xl:w-[15%] 3xl:w-[18%]  justify-start">
+          {
+            isFocusSearch ? <Image className="m-2 ml-4 h-10 w-10" src="/assets/images/logos/facebook_logo.png" width={40} height={40} alt="facebook_logo" /> : <div onClick={handleSearchOptionReset} className="w-10 h-10 m-2 mr-2 ml-4 p-2 cursor-pointer hover:bg-[#3A3B3C] rounded-full items-center text-center mx-auto">
+              <FiArrowLeft className="w-5 h-5 mt-[2px] text-gray-300 text-center items-center mx-auto font-bold" />
+            </div>
+          }
+          <div className="flex rounded-full bg-[#3A3B3C] items-center h-10 mt-2 px-5" alt="facebook logo">
+
+            {
+              isFocusSearch && <FaSearch className="w-4 h-4 text-gray-300 mr-2 3xl:mr-0 transition ease-in-out delay-150" />
+            }
+            <input onClick={handleSearchOption} placeholder="Search Facebook" className="caret-white  hidden 4xl:inline-flex outline-none bg-[#3A3B3C] w-44" />
+
+          </div>
+        </div>
+        <div className='flex justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center'>
+          <div className='flex space-x-1 xl:space-x-1 4xl:space-x-4 3xl:space-x-2'>
+            <HeaderMiddleIcons Icon={FaHome} active={true} />
+            <HeaderMiddleIcons Icon={FiUsers} />
+            <HeaderMiddleIcons Icon={FaTv} />
+            <HeaderMiddleIcons Icon={FaStore} />
+            <HeaderMiddleIcons Icon={FaGamepad} />
+          </div>
+        </div>
+        <div className="flex space-x-2 mr-2 2xl:w-[22rem] mx-auto justify-end">
+          <HeaderRightIcons Icon={BsFillGrid3X3GapFill} />
+          <HeaderRightIcons Icon={FaFacebookMessenger} />
+          <HeaderRightIcons Icon={FaBell} />
+          <Image onClick={() => handleLogout()} src={image} alt='facebook_profile_image' className="rounded-full cursor-pointer mr-5 w-10 h-10 items-center justify-center text-center m-auto hover:animate-pulse"
+            width={40} height={40} />
         </div>
       </div>
     </div>
