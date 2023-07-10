@@ -10,7 +10,7 @@ export default function Form() {
   }
 
   const handleGoogleSignIn = (e) => {
-    const URL = prosess.env.NEXTAUTH_URL || 'http://localhost:3000';
+    const URL = 'https://facebook-clone-v2-steel.vercel.app';
     signIn('google', { callbackUrl: URL });
   };
 
