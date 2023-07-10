@@ -9,7 +9,9 @@ export default function Index() {
 
 
   const handleGoogleSignIn = (e) => {
-    signIn('google');
+    signIn('google',{
+      callbackUrl: 'http://localhost:3000/'
+    });
   };
 
     return (
