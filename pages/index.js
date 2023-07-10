@@ -5,7 +5,7 @@ import Dashboard from '@/components/home/Dashboard';
 
 export default function index({session}) {
   if (session) {
-    return (<Dashboard />)
+    return (<Dashboard session={session}/>)
   }else{
     return (<LoginPage />)
   }
