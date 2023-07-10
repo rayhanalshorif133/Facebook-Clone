@@ -44,9 +44,8 @@ export default function Index() {
             <FaBars className="w-10 h-10 text-gray-300  mt-2 mr-2 p-2 bg-[#3A3B3C] rounded-full" />
           </div>
         </div>
-        <div className="flex justify-between px-3 divide-y divide-blue-200">
-          <div className="flex mx-auto">
-            {/* Just  */}
+        <div className="px-3 divide-y divide-blue-200">
+          <div className="flex justify-evenly mx-auto">
             <SmHeaderIcons Icon={FiHome} active={true} />
             <SmHeaderIcons Icon={FaUserFriends} />
             <SmHeaderIcons Icon={FaFacebookMessenger} />
