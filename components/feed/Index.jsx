@@ -9,8 +9,11 @@ export default function Feed() {
       <span className='xl:hidden'>
         <SmStories />
       </span>
-      <div className='hidden 2xl:inline-flex mt-6 justify-center sm:mx-[3rem] xl:ml-[6rem] 2xl:mx-auto 2xl:justify-items-center 2xl:w-[86%] xl:mr-[26.8rem]'>
+      <div className='hidden 2xl:inline-flex mt-6 justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center px-6 4xl:pr-0 5xl:pr-[8.5rem]'>
           <Stories />
+      </div>
+      <div className='hidden 2xl:inline-flex text-white mt-6 justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center px-6 m'>
+          <InputBox />
       </div>
     </div>
   )

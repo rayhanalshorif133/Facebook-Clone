@@ -13,11 +13,10 @@ module.exports = {
       'lg': '481px',
       'xl': '769px',
       '2xl': '1024px',
-      '3xl': '1025px',
-      '4xl': '1200px',
-      '5xl': '1400px',
-      '6xl': '1600px',
-      '7xl': '1920px'
+      '3xl': '1200px',
+      '4xl': '1400px',
+      '5xl': '1600px',
+      '6xl': '1920px'
     },
     extend: {
       borderWidth: {

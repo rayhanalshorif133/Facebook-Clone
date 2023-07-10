@@ -10,7 +10,7 @@ export default function SidebarRow({ src, title, profileImage = false, icon = fa
           width={35} height={35} />
       )}
       {icon && <SeeMoreBtn />}
-      <p className="hidden sm:inline-flex font-medium">{title}</p>
+      <p className="hidden 4xl:inline-flex font-medium">{title}</p>
     </div>
   )
 }
