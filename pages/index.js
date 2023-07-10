@@ -1,20 +1,10 @@
 import Header from '@/components/Header/Index'
-import LoginPage from '@/components/Login/LoginIndex'
-import Feed from '@/components/feed/Index'
-import Widgets from '@/components/home/widgets/Index'
 import { getSession, useSession } from 'next-auth/react'
 import Head from 'next/head'
-import Sidebar from '@/components/home/sidebar/Index'
-import axios from 'axios'
 
 
 export default function Home({session}) {
 
-  if (!session) return <LoginPage />;
-
-  if(session){
-    axios.post('/api/user/modify',session);
-  }
 
   return (
     <div className='h-screen bg-[#18191A] overflow-x-hidden'>
@@ -23,11 +13,6 @@ export default function Home({session}) {
         <title>Facebook</title>
       </Head>
       <Header />
-      <main className='xl:flex bg-[#18191A]'>
-        <span className='hidden 2xl:inline-flex'><Sidebar /></span>
-        <Feed />
-        <span className='hidden 2xl:inline-flex'><Widgets /></span>
-      </main>
     </div>
   )
 }
