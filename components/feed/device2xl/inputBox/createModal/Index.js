@@ -20,6 +20,7 @@ export default function Index({ show, handleModal }) {
       } = useForm()
     
       const createNewPost = (data) => {
+        console.log(data);
         axios.post('/api/post/create', {
             user: session?.user,
             post_des: data.post_description,
