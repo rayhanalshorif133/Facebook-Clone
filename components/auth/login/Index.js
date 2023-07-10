@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React from 'react'
 import Form from './Form'
 import Footer from './Footer'
+import MobileIndex from './mobile/MobileIndex'
 
 export default function Index() {
     return (
@@ -11,7 +12,7 @@ export default function Index() {
             <title>Facebook - log in or sign up</title>
           </Head>
           <main className='bg-[#F0F2F5]'>
-            <div className="flex xl:items-center justify-between mx-auto w-[55%] xl:w-[75%]">
+            <div className="xl:items-center justify-between mx-auto w-[55%] xl:w-[75%] hidden 2xl:flex">
               <div className="w-2/3">
                 <h2 className="text-[#1877F2] text-[4rem] font-bold">facebook</h2>
                 <p className="text-black text-[1.7rem] font-[480] xl:font-[490] leading-none">
@@ -21,8 +22,11 @@ export default function Index() {
                 <Form />
               </div>
             </div>
-            <div className='2xl:mt-40 bg-white'>
+            <div className='2xl:mt-40 bg-white hidden 2xl:flex'>
               <Footer />
+            </div>
+            <div className="2xl:hidden">
+                <MobileIndex />
             </div>
           </main>
         </div>
