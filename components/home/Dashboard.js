@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '@/components/header/Index'
 import Sidebar from '@/components/home/sidebar/Index'
 import Widgets from '@/components/home/widgets/Index'
