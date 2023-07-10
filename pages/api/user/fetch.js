@@ -13,9 +13,6 @@ export default async function getUsers(req, res) {
             email: { $ne: email }
         });
         responseWithSuccess(res, activeUsers);
-    } else {
-        const inactiveUsers = await User.find({ activeStatus: false });
-        responseWithSuccess(res, inactiveUsers);
     }
 
 }
