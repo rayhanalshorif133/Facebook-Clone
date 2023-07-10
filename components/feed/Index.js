@@ -5,7 +5,7 @@ import { default as SmStories, default as Stories } from './story/Index'
 
 export default function Index() {
   return (
-    <div className='flex flex-col xl:ml-1 2xl:w-8/12 2xl:mx-auto overflow-x-hidden overscroll-contain 3xl:w-[45%]'>
+    <div className='flex flex-col xl:ml-1 2xl:w-8/12 2xl:mx-auto overflow-x-hidden 3xl:w-[45%] scrollbar-hide'>
       <span className='2xl:hidden'>
         <SmStories />
       </span>

@@ -13,7 +13,7 @@ export default function Dashboard({session}) {
     }, []);
 
     return (
-        <div className='h-screen bg-[#18191A] overflow-x-hidden'>
+        <div className='h-screen bg-[#18191A] overflow-x-hidden scrollbar-hide'>
             <Head>
                 <link rel="icon" href="/assets/icons/facebook_logo_icon.ico" sizes="any" />
                 <title>Facebook</title>

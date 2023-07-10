@@ -66,13 +66,13 @@ export default function Index() {
           <div className="flex rounded-full bg-[#3A3B3C] items-center h-10 mt-2 px-5" alt="facebook logo">
 
             {
-              isFocusSearch && <FaSearch className="w-4 h-4 text-gray-300 mr-2 3xl:mr-0 transition ease-in-out delay-150" />
+              isFocusSearch && <FaSearch className="w-4 h-4 text-gray-300 mr-2 3xl:mr-1 transition ease-in-out delay-150" />
             }
-            <input onClick={handleSearchOption} placeholder="Search Facebook" className="caret-white  hidden 4xl:inline-flex outline-none bg-[#3A3B3C] w-44" />
+            <input onClick={handleSearchOption} placeholder="Search Facebook" className="caret-white  hidden 3xl:inline-flex outline-none bg-[#3A3B3C] w-44" />
           </div>
         </div>
-        <div className='flex justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center'>
-          <div className='flex space-x-1 xl:space-x-1 4xl:space-x-4 3xl:space-x-2'>
+        <div className='flex justify-center sm:mx-[3rem] 3xl:items-center 3xl:mx-auto 3xl:ml-24 2xl:justify-items-center'>
+          <div className='flex space-x-1 xl:space-x-1 4xl:space-x-4 3xl:space-x-1'>
             <HeaderMiddleIcons Icon={FaHome} active={true} />
             <HeaderMiddleIcons Icon={FiUsers} />
             <HeaderMiddleIcons Icon={FaTv} />

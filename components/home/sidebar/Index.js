@@ -7,7 +7,7 @@ export default function Index() {
   const { data: session, status } = useSession()
   const { image, name } = session?.user;
   return (
-    <div className='text-white ml-2 w-[22rem] xl:w-[8rem] 4xl:w-[18rem]'>
+    <div className='text-white ml-2 w-[22rem] xl:w-[8rem] 3xl:w-full 4xl:w-[18rem]'>
       <div className='flex flex-col mt-3 xl:mt-2'>
         <SidebarRow src={image} title={name} profileImage={true} />
         <SidebarRow src='/assets/icons/home_sidebar/friends.png' title='Friends' />
