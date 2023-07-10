@@ -11,7 +11,7 @@ export default async function create(req, res) {
     });
 
     if(getUser){
-        Post.create({
+       await Post.create({
             description: post_des,
             image: post_image,
             author: getUser[0]._id
