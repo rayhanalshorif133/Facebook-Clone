@@ -27,15 +27,8 @@ export default function Index() {
   }
 
   const  handleLogout = async () => {
-    await axios.post('/api/user/logout', session)
-    .then((res) => {
-      const data = res.data;
-      if(data.status == true){
-        signOut();
-      }else{
-        console.log(data.message);
-      }
-    });
+    signOut();
+   
   }
 
   return (
@@ -66,7 +59,7 @@ export default function Index() {
 
       {/* For Large Device */}
       <div className="flex bg-[#242526] h-14 shadow-sm border-b border-gray-700 sm:hidden xl:inline-flex w-full  overflow-hidden">
-        <div className="text-white flex">
+        <div className="text-white flex w-[22rem] justify-start">
           {
             isFocusSearch ? <Image className="m-2 ml-4 h-10 w-10" src="/assets/images/logos/facebook_logo.png" width={40} height={40} alt="facebook_logo" /> : <div onClick={handleSearchOptionReset} className="w-10 h-10 m-2 mr-2 ml-4 p-2 cursor-pointer hover:bg-[#3A3B3C] rounded-full items-center text-center mx-auto">
               <FiArrowLeft className="w-5 h-5 mt-[2px] text-gray-300 text-center items-center mx-auto font-bold" />
@@ -81,7 +74,7 @@ export default function Index() {
 
           </div>
         </div>
-        <div className='flex justify-center sm:mx-[3rem] xl:ml-[6rem] xl:mr-[26.8rem] 2xl:mx-auto 2xl:justify-items-center'>
+        <div className='flex justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center'>
           <div className='flex space-x-6 xl:space-x-1 2xl:space-x-1 md:space-x-2'>
             <HeaderMiddleIcons Icon={FaHome} active={true} />
             <HeaderMiddleIcons Icon={FiUsers} />
@@ -90,7 +83,7 @@ export default function Index() {
             <HeaderMiddleIcons Icon={FaGamepad} />
           </div>
         </div>
-        <div className="flex space-x-2 mr-2">
+        <div className="flex space-x-2 mr-2 2xl:w-[22rem] mx-auto justify-end">
           <HeaderRightIcons Icon={BsFillGrid3X3GapFill} />
           <HeaderRightIcons Icon={FaFacebookMessenger} />
           <HeaderRightIcons Icon={FaBell} />
