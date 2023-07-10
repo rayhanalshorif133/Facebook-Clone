@@ -11,6 +11,6 @@ export const authOptions = {
     }),
   ],
    // NEXT_SECRET
-   secret: 'b2d2f0c0-0c0c-4c0c-8c0c-6c0c4c0c0c0c'
+   secret: 'b2d2f0c00c0c4c0c8c0c6c0c4c0c0c0c'
 }
 export default NextAuth(authOptions)
