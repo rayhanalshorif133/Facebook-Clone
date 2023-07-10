@@ -69,7 +69,6 @@ export default function Index() {
               isFocusSearch && <FaSearch className="w-4 h-4 text-gray-300 mr-2 3xl:mr-0 transition ease-in-out delay-150" />
             }
             <input onClick={handleSearchOption} placeholder="Search Facebook" className="caret-white  hidden 4xl:inline-flex outline-none bg-[#3A3B3C] w-44" />
-
           </div>
         </div>
         <div className='flex justify-center sm:mx-[3rem] 2xl:mx-auto 2xl:justify-items-center'>
