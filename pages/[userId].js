@@ -18,8 +18,8 @@ export default function userProfile({userId,session}) {
                 <title>Facebook</title>
             </Head>
             <Header />
-            <main className='xl:flex bg-[#18191A]'>
-                Hey
+            <main className='xl:flex bg-[#18191A] text-white'>
+                Hey this is production
             </main>
         </div>
     )
