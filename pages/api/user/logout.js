@@ -1,7 +1,7 @@
 import responseWithError from "@/libs/res/responseWithError";
 import responseWithSuccess from "@/libs/res/responseWithSuccess";
 import User from "@/models/User";
-import DBConnection from "@/pages/database/connection";
+import DBConnection from "@/libs/database/connection";
 
 
 export default async function logout(req, res) {

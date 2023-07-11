@@ -4,18 +4,20 @@ import { useSession } from 'next-auth/react';
 import { ImSpinner11 } from 'react-icons/im';
 import Link from "next/link";
 import axios from 'axios';
+import { useRouter } from "next/router";
 
 export default function Header({handlePopDown}) {
     const { data: session } = useSession();
 
   const { image, name } = session?.user;
+  const router = useRouter();
 
   const handleToGoUserProfile = () => {
     axios.post('/api/user/fetch',{
       type:"get-one-user-by-email",
       email:session?.user?.email
     }).then((res)=> {
-      console.log(res.data.data);
+      router.push(`/${res.data.data._id}/`);
     });
   }
 

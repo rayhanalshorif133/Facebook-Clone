@@ -1,6 +1,6 @@
 import responseWithSuccess from "@/libs/res/responseWithSuccess";
 import User from "@/models/User";
-import DbConnection from "@/pages/database/connection";
+import DbConnection from "@/libs/database/connection";
 
 export default async function getUsers(req, res) {
 

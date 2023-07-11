@@ -13,8 +13,8 @@ export default function Item(props) {
         <div className='flex justify-between h-8 3xl:h-10 4xl:h-12 w-full hover:bg-[#3A3B3C] rounded-xl cursor-pointer my-2 py-5'>
             <div onClick={action} className='flex items-center justify-center px-3'>
                 <div className='flex items-center justify-center'>
-                    <div className='flex items-center justify-center m-auto h-6 3xl:h-7 4xl:h-8 w-6 3xl:w-7 4xl:w-8 rounded-full bg-[#4E4F50]'>
-                        <Icon className='h-3 3xl:h-4 4xl:h-5 w-3 3xl:w-4 4xl:w-5 text-white m-auto'/>
+                    <div className='flex items-center justify-center m-auto h-7 3xl:h-8 4xl:h-9 w-7 3xl:w-8 4xl:w-9 rounded-full bg-[#4E4F50]'>
+                        <Icon className='h-4 3xl:h-5 4xl:h-5 w-4 3xl:w-5 4xl:w-6 text-white m-auto'/>
                     </div>
                 </div>
                 <div className='flex items-center justify-center ml-3'>
