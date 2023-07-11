@@ -1,17 +1,13 @@
 import React from 'react'
-import FooterIcons from './_partials/FooterIcons'
+import FooterIcons from './FooterIcons'
 import { IoMdPhotos } from 'react-icons/io';
 import { FaUserTag } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { CgSmileMouthOpen } from 'react-icons/cg';
 import { BsThreeDots } from "react-icons/bs";
 import { HiGif } from "react-icons/hi2";
-import { largeDevicePostContext } from './Index';
 
-export default function Footer() {
-
-    const { handleSubmit,createNewPost } = React.useContext(largeDevicePostContext);
-
+export default function Footer({ handleSubmit,createNewPost }) {
     return (
         <div className="pl-4 pr-3 py-3">
             <div className='h-auto w-full border-1 border-gray-500 rounded-xl'>
@@ -36,7 +32,6 @@ export default function Footer() {
                     <button type='submit' className='bg-blue-500 text-white font-semibold rounded-md px-4 py-2 mt-3 w-full'>Post</button>
                 </div>
             </form>
-            
         </div>
     )
 }

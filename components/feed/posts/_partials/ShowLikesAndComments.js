@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react'
 import { emojiContext } from '../Post';
 
-export default function ShowLikesAndComments({ number }) {
+export default function ShowLikesAndComments({ number}) {
 
     // make a random number
 
@@ -33,7 +33,7 @@ export default function ShowLikesAndComments({ number }) {
 
 
     return (
-        <div className='flex justify-between border-b-1 border-gray-600'>
+        <div key={post?._id} className='flex justify-between border-b-1 border-gray-600'>
             <div className='flex'>
                 {
                     likes > 0 &&

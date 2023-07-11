@@ -1,11 +1,7 @@
 import React from 'react'
 import { RxCross2 } from "react-icons/rx";
-import { largeDevicePostContext } from './Index';
 
-export default function Header() {
-
-    const {handleModal} = React.useContext(largeDevicePostContext);
-
+export default function Header({handleModal}) {
     return (
     <div className="my-2 py-2 px-2 flex border-b-1 border-gray-700">
         <div className='items-center text-center mx-auto'>

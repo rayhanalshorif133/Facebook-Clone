@@ -1,15 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useSession } from 'next-auth/react';
-import { BiSolidLockAlt, BiSolidDownArrow, BiSmile } from 'react-icons/bi';
+import { BiSolidLockAlt, BiSolidDownArrow, BiSmile, BiImageAdd } from 'react-icons/bi';
 import { FaMobileScreen } from "react-icons/fa6";
 import ImagePlaceHolder from './_partials/ImagePlaceHolder';
 import HasImage from './_partials/HasImage';
-import { largeDevicePostContext } from './Index';
 
-export default function Body() {
+export default function Body(props) {
 
     const { data: session } = useSession();
-    const { uploadImage, setUploadImage, register } = React.useContext(largeDevicePostContext);
+    const {uploadImage, setUploadImage,register} = props;
     const imageInputRef = useRef(null);
 
     const handleImageInputToggle = () => {
@@ -33,7 +32,7 @@ export default function Body() {
         }
     }
 
-
+    
 
     return (
         <div className="pl-4 pr-1">

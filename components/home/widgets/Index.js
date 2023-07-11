@@ -24,7 +24,7 @@ export default function Index() {
 
 
   return (
-    <div className='mr-2 xl:hidden 2xl:inline-flex 2xl:w-[22rem]'>
+    <div className='mr-2 xl:hidden 2xl:inline-flex w-[18rem] 2xl:w-[19rem] 3xl:w-[20rem] 4xl:w-[22rem]'>
       <div className='flex flex-col mt-3 xl:mt-2 h-screen overflow-y-auto scrollbar-hide'>
         <Sponsored />
         <PageAndProfile />

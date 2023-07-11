@@ -22,7 +22,7 @@ export default function Body({ post }) {
             {
                 showEmoji === true && <ShowEmoji />
             }
-            <ShowLikesAndComments number={1} />
+            <ShowLikesAndComments key={post._id} number={1} />
         </div>
     )
 }

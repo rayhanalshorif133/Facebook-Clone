@@ -14,10 +14,10 @@
         @apply cursor-pointer hover:scale-105 transition duration-300 ease-in-out;
     }
     .inputBox{
-        @apply flex justify-center items-center px-9 py-[7px] hover:bg-gray-hover rounded-xl cursor-pointer;
+        @apply flex justify-center items-center px-7 4xl:px-9 py-[5px] 4xl:py-[7px] hover:bg-gray-hover rounded-xl cursor-pointer;
     }
     .inputBox .inputBoxIcon{
-        @apply text-[26px] mr-2 items-center;
+        @apply text-[16px] 4xl:text-[26px] mr-2 items-center;
     }
 }
 
