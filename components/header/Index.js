@@ -9,12 +9,13 @@ import HeaderRightIcons from "./HeaderRightIcons";
 import SmHeaderIcons from "./_partials/SmHeaderIcons";
 import ShowUserPopDownInfo from "./_partials/showUserPopDownInfo/Index";
 
-import axios from "axios";
+
 
 
 export default function Index() {
 
   const [isFocusSearch, setIsFocusSearch] = useState(true);
+  const [isPopDownUserInfo, setIsPopDownUserInfo] = useState(false);
   const { data: session } = useSession();
 
   const { image } = session?.user;
@@ -28,15 +29,10 @@ export default function Index() {
     setIsFocusSearch(true);
   }
 
-  const handleLogout = async () => {
-    axios.post('/api/user/logout', session)
-      .then((res) => {
-        // signOut();
-      });
-  }
+
 
   const handlePopDown = () => {
-    console.log("hello");
+    setIsPopDownUserInfo(!isPopDownUserInfo);
   }
 
   return (
@@ -96,7 +92,9 @@ export default function Index() {
             width={40} height={40} />
         </div>
       </div>
-      <ShowUserPopDownInfo handlePopDown={handlePopDown} />
+      {
+        isPopDownUserInfo === true && <ShowUserPopDownInfo handlePopDown={handlePopDown} />
+      }
     </div>
   )
 }

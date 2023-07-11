@@ -2,14 +2,26 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useSession } from 'next-auth/react';
 import { ImSpinner11 } from 'react-icons/im';
+import Link from "next/link";
+import axios from 'axios';
 
 export default function Header({handlePopDown}) {
     const { data: session } = useSession();
 
   const { image, name } = session?.user;
+
+  const handleToGoUserProfile = () => {
+    axios.post('/api/user/fetch',{
+      type:"get-one-user-by-email",
+      email:session?.user?.email
+    }).then((res)=> {
+      console.log(res.data.data);
+    });
+  }
+
   return (
     <div className='p-5'>
-          <div className='flex justify-between h-10 3xl:h-12 4xl:h-16 w-full hover:bg-[#3A3B3C] rounded-xl cursor-pointer'>
+          <div onClick={handleToGoUserProfile} className='flex justify-between h-10 3xl:h-12 4xl:h-16 w-full hover:bg-[#3A3B3C] rounded-xl cursor-pointer'>
             <div className='flex items-center justify-center px-3'>
               <div className=''>
                 <Image onClick={() => handlePopDown()} src={image} alt='facebook_profile_image' className="rounded-full cursor-pointer mr-5 h-8 w-8  3xl:h-9 3xl:w-9 4xl:h-10 4xl:w-10 items-center justify-center text-center m-auto hover:animate-pulse"
