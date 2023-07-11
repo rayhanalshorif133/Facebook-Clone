@@ -7,6 +7,7 @@ import DBConnection from "@/pages/database/connection";
 export default async function logout(req, res) {
 
 
+    // api/user/logout
     await DBConnection();
 
     const {email} = req.body?.user;

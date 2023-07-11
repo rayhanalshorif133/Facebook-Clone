@@ -7,6 +7,8 @@ import { FiArrowLeft, FiHome, FiUsers } from "react-icons/fi";
 import HeaderMiddleIcons from "./HeaderMiddleIcons";
 import HeaderRightIcons from "./HeaderRightIcons";
 import SmHeaderIcons from "./_partials/SmHeaderIcons";
+import ShowUserPopDownInfo from "./_partials/showUserPopDownInfo/Index";
+
 import axios from "axios";
 
 
@@ -27,8 +29,14 @@ export default function Index() {
   }
 
   const handleLogout = async () => {
-    signOut();
+    axios.post('/api/user/logout', session)
+      .then((res) => {
+        // signOut();
+      });
+  }
 
+  const handlePopDown = () => {
+    console.log("hello");
   }
 
   return (
@@ -84,10 +92,11 @@ export default function Index() {
           <HeaderRightIcons Icon={BsFillGrid3X3GapFill} />
           <HeaderRightIcons Icon={FaFacebookMessenger} />
           <HeaderRightIcons Icon={FaBell} />
-          <Image onClick={() => handleLogout()} src={image} alt='facebook_profile_image' className="rounded-full cursor-pointer mr-5 w-10 h-10 items-center justify-center text-center m-auto hover:animate-pulse"
+          <Image onClick={() => handlePopDown()} src={image} alt='facebook_profile_image' className="rounded-full cursor-pointer mr-5 w-10 h-10 items-center justify-center text-center m-auto hover:animate-pulse"
             width={40} height={40} />
         </div>
       </div>
+      <ShowUserPopDownInfo handlePopDown={handlePopDown} />
     </div>
   )
 }
